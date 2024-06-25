@@ -1,0 +1,29 @@
+services:
+  redis:
+    image: redis:latest
+    restart: always
+    ports:
+      - "6379:6379"
+    volumes:
+      - ./redis/data:/data
+    command: ["redis-server", "--save 60 1",  "--loglevel warning"]
+
+  tcs_api_accessor:
+    env_file:
+      - TCSApiAccessor/.env
+    build:
+      context: TCSApiAccessor
+    ports:
+      - "8000:8000"
+    networks:
+      - div_bot_network
+
+#   db:
+#     build:
+#       context: db
+#     networks:
+#       - my_network
+
+networks:
+  div_bot_network:
+    driver: bridge
