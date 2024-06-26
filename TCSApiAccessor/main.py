@@ -1,19 +1,37 @@
 from fastapi import FastAPI
-from pydantic import BaseModel
+
 from config import load_config
-from datetime import datetime
-from schema import Instrument, Instruments
-
-
-from tcs_api import TCSFetcher
+from schema import Instruments, Price
+from tcs_api import TCSFetcher, get_last_prices
 
 config = load_config()
 
 app = FastAPI()
 
-fetcher = TCSFetcher(config.tcs.token, config.tcs.settings)
+fetcher = TCSFetcher(config.tcs)
 
 
-@app.get("/get_instruments")
-async def provide_instruments():
+@app.get('/get_instruments')
+async def provide_instruments() -> Instruments:
+    """Provides all available instruments."""
+
+    if not config.tcs.token:
+        return provide_fixture('instruments_response.json')
     return await fetcher.download_instruments()
+
+
+@app.post('/get_prices')
+async def get_latest_market_prices(uids: list[str]) -> list[Price]:
+    """Gets a list of uids and returns the latest prices for the instruments."""
+
+    if not config.tcs.token:
+        return provide_fixture('prices_response.json')
+    return await get_last_prices(uids, config.tcs)
+
+
+def provide_fixture(filename: str):
+    import json
+    fixture_path = 'fixtures/' + filename
+    with open(fixture_path, 'r') as file:
+        json_data = json.load(file)
+    return json_data

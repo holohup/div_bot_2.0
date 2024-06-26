@@ -1,0 +1,1710 @@
+{
+  "stocks": [
+    {
+      "ticker": "KZIZP",
+      "uid": "9b5f01f6-b836-45e4-af1b-e23cbab34507"
+    },
+    {
+      "ticker": "IRKT",
+      "uid": "cfb50a23-2465-497e-bc7e-e4f0e042cf3d"
+    },
+    {
+      "ticker": "VSMO",
+      "uid": "e9139ddd-bf3c-4d03-a94f-ffdf7234c6be"
+    },
+    {
+      "ticker": "UNAC",
+      "uid": "43666aea-a4df-46e1-a815-e5eccbc1fb3f"
+    },
+    {
+      "ticker": "VKCO",
+      "uid": "b71bd174-c72c-41b0-a66f-5f9073e0d1f5"
+    },
+    {
+      "ticker": "TTLK",
+      "uid": "76721c1c-52a9-4b45-987e-d075f651f1b1"
+    },
+    {
+      "ticker": "MGNT",
+      "uid": "ca845f68-6c43-44bc-b584-330d2a1e5eb7"
+    },
+    {
+      "ticker": "SVCB",
+      "uid": "1fbecbbc-ef32-448c-b4fe-b0037795ba01"
+    },
+    {
+      "ticker": "KZIZ",
+      "uid": "0f3165ef-3b53-4bc0-a4c8-19d0016b0b6d"
+    },
+    {
+      "ticker": "ETLN",
+      "uid": "a9b8460b-0272-49a6-b803-4c02d3e9c5d9"
+    },
+    {
+      "ticker": "KZOSP",
+      "uid": "3879e073-f27a-4e2f-9a97-97475b25194d"
+    },
+    {
+      "ticker": "WUSH",
+      "uid": "b993e814-9986-4434-ae88-b086066714a0"
+    },
+    {
+      "ticker": "GEMC",
+      "uid": "fbc2eb4e-997e-4654-a1b1-4055e238bd00"
+    },
+    {
+      "ticker": "UGLD",
+      "uid": "48bd9002-43be-4528-abf4-dc8135ad4550"
+    },
+    {
+      "ticker": "PHOR",
+      "uid": "9978b56f-782a-4a80-a4b1-a48cbecfd194"
+    },
+    {
+      "ticker": "HNFG",
+      "uid": "2fa1d15e-236c-4e4e-8155-f740badfece6"
+    },
+    {
+      "ticker": "HHRU",
+      "uid": "cf9ed7ef-784d-4c2c-aabe-362891fcd80c"
+    },
+    {
+      "ticker": "LNZL",
+      "uid": "4563f7a1-8245-4caf-aba5-ac49827ba775"
+    },
+    {
+      "ticker": "SELG",
+      "uid": "0d28c01b-f841-4e89-9c92-0ee23d12883a"
+    },
+    {
+      "ticker": "TATNP",
+      "uid": "efdb54d3-2f92-44da-b7a3-8849e96039f6"
+    },
+    {
+      "ticker": "SLAV",
+      "uid": "2c69924a-fcf4-4d3c-8c02-02cd665f554d"
+    },
+    {
+      "ticker": "PRFN",
+      "uid": "16bb8ed3-2cb1-4d89-8f04-afe0b34e21d0"
+    },
+    {
+      "ticker": "MAGN",
+      "uid": "7132b1c9-ee26-4464-b5b5-1046264b61d9"
+    },
+    {
+      "ticker": "VTBR",
+      "uid": "8e2b0325-0292-4654-8a18-4f63ed3b0e09"
+    },
+    {
+      "ticker": "CARM",
+      "uid": "330a4507-03f9-4f8d-8303-492ba09cccba"
+    },
+    {
+      "ticker": "RUAL",
+      "uid": "f866872b-8f68-4b6e-930f-749fe9aa79c0"
+    },
+    {
+      "ticker": "NKHP",
+      "uid": "d0b3723c-35f8-497c-97f7-345bbcfbf1e1"
+    },
+    {
+      "ticker": "TGKJ",
+      "uid": "0102d253-5095-499c-934e-5a5fd6fce00d"
+    },
+    {
+      "ticker": "BANEP",
+      "uid": "a5776620-1e2f-47ea-bbd6-06d8e4a236d8"
+    },
+    {
+      "ticker": "OKEY",
+      "uid": "2a3ac153-f5fb-4f6d-af66-38a8d2b2eacb"
+    },
+    {
+      "ticker": "ALRS",
+      "uid": "30817fea-20e6-4fee-ab1f-d20fc1a1bb72"
+    },
+    {
+      "ticker": "MRKP",
+      "uid": "9a41ec6e-edf0-4863-9ec0-fb3a5c6811e2"
+    },
+    {
+      "ticker": "FLOT",
+      "uid": "21423d2d-9009-4d37-9325-883b368d13ae"
+    },
+    {
+      "ticker": "DIAS",
+      "uid": "3f692296-eee8-4854-a905-019d6377961f"
+    },
+    {
+      "ticker": "TATN",
+      "uid": "88468f6c-c67a-4fb4-a006-53eed803883c"
+    },
+    {
+      "ticker": "ABIO",
+      "uid": "cbdf1d32-5758-490e-a2b1-780eaa79bdf7"
+    },
+    {
+      "ticker": "UWGN",
+      "uid": "a8dc188b-cae8-40c0-99e8-f561f4339751"
+    },
+    {
+      "ticker": "DVEC",
+      "uid": "18fb3421-7637-48f1-b5b5-20a454e1af5b"
+    },
+    {
+      "ticker": "RTKM",
+      "uid": "02eda274-10c4-4815-8e02-a8ee7eaf485b"
+    },
+    {
+      "ticker": "ZAYM",
+      "uid": "1a7766fb-3aa9-4b20-8817-b9b7607c0e7b"
+    },
+    {
+      "ticker": "MTSS",
+      "uid": "cd8063ad-73ad-4b31-bd0d-93138d9e99a2"
+    },
+    {
+      "ticker": "TGKN",
+      "uid": "41133bf9-9b9d-4d28-8864-9160b57871d1"
+    },
+    {
+      "ticker": "TRNFP",
+      "uid": "653d47e9-dbd4-407a-a1c3-47f897df4694"
+    },
+    {
+      "ticker": "FEES",
+      "uid": "88e130e8-5b68-4b05-b9ae-baf32f5a3f21"
+    },
+    {
+      "ticker": "OBNE",
+      "uid": "ffac99ad-bafa-430e-9750-e77a43176ede"
+    },
+    {
+      "ticker": "PMSB",
+      "uid": "4d8209f9-3b75-437d-ad5f-2906d56f27e9"
+    },
+    {
+      "ticker": "ZILLP",
+      "uid": "f4da07c8-dfc5-44f8-989d-c45d85027aad"
+    },
+    {
+      "ticker": "MSRS",
+      "uid": "019029c2-6634-4536-a980-389575e09b74"
+    },
+    {
+      "ticker": "IRAO",
+      "uid": "2dfbc1fd-b92a-436e-b011-928c79e805f2"
+    },
+    {
+      "ticker": "NSVZ",
+      "uid": "88c3b1dd-cf86-48b6-b479-464ce1149472"
+    },
+    {
+      "ticker": "GCHE",
+      "uid": "231e5e27-9956-47e7-ad50-6e802e4a92ed"
+    },
+    {
+      "ticker": "SNGSP",
+      "uid": "a797f14a-8513-4b84-b15e-a3b98dc4cc00"
+    },
+    {
+      "ticker": "NVTK",
+      "uid": "0da66728-6c30-44c4-9264-df8fac2467ee"
+    },
+    {
+      "ticker": "UNKL",
+      "uid": "69e56041-ddab-4151-9832-e0a1e9f83a42"
+    },
+    {
+      "ticker": "NKNC",
+      "uid": "7fad3575-99ca-4b36-807c-9c7c37e64b29"
+    },
+    {
+      "ticker": "AQUA",
+      "uid": "b83ab195-dcd2-4d44-b9bf-27fa294f19a0"
+    },
+    {
+      "ticker": "VRSB",
+      "uid": "3c899002-e8f5-42fd-b617-4bc2f31e6767"
+    },
+    {
+      "ticker": "MBNK",
+      "uid": "459a1a0a-0253-465a-bd4e-afaaf5e670b0"
+    },
+    {
+      "ticker": "MOEX",
+      "uid": "5e1c2634-afc4-4e50-ad6d-f78fc14a539a"
+    },
+    {
+      "ticker": "ROLO",
+      "uid": "eb05ebd4-a216-434b-bddd-69531f120ec9"
+    },
+    {
+      "ticker": "OZON",
+      "uid": "35fb8d6b-ed5f-45ca-b383-c4e3752c9a8a"
+    },
+    {
+      "ticker": "OGKB",
+      "uid": "3d8f2777-4a11-4713-af60-8038d11e66fa"
+    },
+    {
+      "ticker": "NOMP",
+      "uid": "b24fa6a8-b700-4afb-8e24-2c7ed5e4888e"
+    },
+    {
+      "ticker": "GLTR",
+      "uid": "2c0e65d1-d8da-477c-a438-ac41bb132e25"
+    },
+    {
+      "ticker": "KAZTP",
+      "uid": "3240b205-4718-47d2-8650-8bdc89533fd8"
+    },
+    {
+      "ticker": "SNGS",
+      "uid": "1ffe1bff-d7b7-4b04-b482-34dc9cc0a4ba"
+    },
+    {
+      "ticker": "CBOM",
+      "uid": "ebfda284-4291-4337-9dfb-f55610d0a907"
+    },
+    {
+      "ticker": "AMEZ",
+      "uid": "08da2447-0dc4-433d-a2f3-627382208695"
+    },
+    {
+      "ticker": "TGKBP",
+      "uid": "45609688-b63e-42dd-88a0-9d30c423c5e5"
+    },
+    {
+      "ticker": "ABRD",
+      "uid": "926fdfbf-4b07-47c9-8928-f49858ca33f2"
+    },
+    {
+      "ticker": "PIKK",
+      "uid": "03d5e771-fc10-438e-8892-85a40733612d"
+    },
+    {
+      "ticker": "ROSN",
+      "uid": "fd417230-19cf-4e7b-9623-f7c9ca18ec6b"
+    },
+    {
+      "ticker": "EUTR",
+      "uid": "02b2ea14-3c4b-47e8-9548-45a8dbcc8f8a"
+    },
+    {
+      "ticker": "TRMK",
+      "uid": "278d9ccc-4dde-484e-bf79-49ce8f733470"
+    },
+    {
+      "ticker": "SOFL",
+      "uid": "ab1f751e-15b2-4c74-802c-1b3e8638c394"
+    },
+    {
+      "ticker": "MRKU",
+      "uid": "1b64e38a-49ad-4f4d-a4d3-b34184899352"
+    },
+    {
+      "ticker": "KRKNP",
+      "uid": "6891e539-6070-4ba6-99c0-7eb1df9c816e"
+    },
+    {
+      "ticker": "CHMF",
+      "uid": "fa6aae10-b8d5-48c8-bbfd-d320d925d096"
+    },
+    {
+      "ticker": "ENPG",
+      "uid": "e2bd2eba-75de-4127-b39c-2f2dbe3866c3"
+    },
+    {
+      "ticker": "POLY",
+      "uid": "127361c2-32ec-448c-b3ec-602166f537ea"
+    },
+    {
+      "ticker": "NKNCP",
+      "uid": "bc21fb4f-8838-4355-8697-fb0d8fc809c8"
+    },
+    {
+      "ticker": "OBNEP",
+      "uid": "69f5da81-80c7-4c12-85dc-3bb7524c4a35"
+    },
+    {
+      "ticker": "UFOSP",
+      "uid": "e0e1ee47-d3e6-43d9-9755-44dcc18ab271"
+    },
+    {
+      "ticker": "MRKV",
+      "uid": "8ec4edb6-b779-4e3c-9146-b11210174d51"
+    },
+    {
+      "ticker": "LSRG",
+      "uid": "b2db7bb1-6f04-4c3c-b910-fb7fd8aab52d"
+    },
+    {
+      "ticker": "TCSG",
+      "uid": "eed9621b-6412-4f4b-a166-758882cc7a4c"
+    },
+    {
+      "ticker": "CNTL",
+      "uid": "c05fd0a1-0c8e-4bc3-bf9e-43e364d278ef"
+    },
+    {
+      "ticker": "SFTL",
+      "uid": "c1bcbfcd-e6cd-4706-a0f7-72500ffaf3d4"
+    },
+    {
+      "ticker": "SVAV",
+      "uid": "c3746fd5-ac02-419a-8893-827775cfb2c8"
+    },
+    {
+      "ticker": "RTKMP",
+      "uid": "e1b089f3-9bf1-44c3-897f-25e9f591bebc"
+    },
+    {
+      "ticker": "KMAZ",
+      "uid": "f8f1de0d-5a5f-47e9-8ecb-00bec8f8351f"
+    },
+    {
+      "ticker": "KZOS",
+      "uid": "a6121478-943f-4eae-bc2a-bab5c771dd4a"
+    },
+    {
+      "ticker": "FIXP",
+      "uid": "ba64a3c7-dd1d-4f19-8758-94aac17d971b"
+    },
+    {
+      "ticker": "MGTSP",
+      "uid": "3112d684-216c-4409-ab73-4316e8582f81"
+    },
+    {
+      "ticker": "ELFV",
+      "uid": "93e0d4c6-45c9-4399-9e0b-dc2f2ff101c7"
+    },
+    {
+      "ticker": "KLVZ",
+      "uid": "e3f629fd-367b-4dbd-922c-4a4c130c70ab"
+    },
+    {
+      "ticker": "AGRO",
+      "uid": "46ae47ee-f409-4776-bf20-43a040b9e7fb"
+    },
+    {
+      "ticker": "VEON-RX",
+      "uid": "f1374f83-7934-41f7-a210-097ed5beecd5"
+    },
+    {
+      "ticker": "NTZL",
+      "uid": "c09c1942-68a1-40c3-97e3-3a91ac08efe5"
+    },
+    {
+      "ticker": "BLNG",
+      "uid": "ac496ed2-9ccd-443d-bb75-d53a62b34bf9"
+    },
+    {
+      "ticker": "DSKY",
+      "uid": "1ea3615d-91b8-4c8e-9f51-38a169a74888"
+    },
+    {
+      "ticker": "GRNT",
+      "uid": "5a3a39f4-3bd5-47a2-8719-ce3e203fd10d"
+    },
+    {
+      "ticker": "SMLT",
+      "uid": "4d813ab1-8bc9-4670-89ea-12bfbab6017d"
+    },
+    {
+      "ticker": "BANE",
+      "uid": "0a55e045-e9a6-42d2-ac55-29674634af2f"
+    },
+    {
+      "ticker": "AFLT",
+      "uid": "1c69e020-f3b1-455c-affa-45f8b8049234"
+    },
+    {
+      "ticker": "CIAN",
+      "uid": "77cb416f-a91e-48bd-8083-db0396c61a41"
+    },
+    {
+      "ticker": "ORUP",
+      "uid": "85d3979a-8e8c-4652-8b61-2c020613ee70"
+    },
+    {
+      "ticker": "SBER",
+      "uid": "e6123145-9665-43e0-8413-cd61b8aa9b13"
+    },
+    {
+      "ticker": "RBCM",
+      "uid": "bb97cf70-44ea-440e-8415-96a41f90f2f5"
+    },
+    {
+      "ticker": "GECO",
+      "uid": "c74fc209-54e2-4ba6-a7a9-9e0d24299184"
+    },
+    {
+      "ticker": "GTRK",
+      "uid": "a4372073-3ce4-4f9e-9027-21ac3bddfb5b"
+    },
+    {
+      "ticker": "MVID",
+      "uid": "cf1c6158-a303-43ac-89eb-9b1db8f96043"
+    },
+    {
+      "ticker": "PMSBP",
+      "uid": "80a39145-b2f7-46f5-9ef0-1478baafb0a6"
+    },
+    {
+      "ticker": "MSTT",
+      "uid": "3058acbe-11f6-4bcc-9a70-238e70c2c588"
+    },
+    {
+      "ticker": "MTLR",
+      "uid": "eb4ba863-e85f-4f80-8c29-f2627938ee58"
+    },
+    {
+      "ticker": "IVAT",
+      "uid": "1936e51c-d914-4171-ac66-6390a605cb5b"
+    },
+    {
+      "ticker": "AKRN",
+      "uid": "cd3affd4-3b50-43fd-b008-518f54108d59"
+    },
+    {
+      "ticker": "MDMG",
+      "uid": "0d53d29a-3794-41c6-ba72-556d46bacb46"
+    },
+    {
+      "ticker": "GAZP",
+      "uid": "962e2a95-02a9-4171-abd7-aa198dbe643a"
+    },
+    {
+      "ticker": "SBERP",
+      "uid": "c190ff1f-1447-4227-b543-316332699ca5"
+    },
+    {
+      "ticker": "LENT",
+      "uid": "5f1e6b0a-4413-489c-b336-40b43730eaf5"
+    },
+    {
+      "ticker": "BSPB",
+      "uid": "1e19953d-01c6-4ecd-a5f4-53ae3ed44029"
+    },
+    {
+      "ticker": "ASTR",
+      "uid": "aae786d8-e8f4-4428-91bb-cffa39ad01e4"
+    },
+    {
+      "ticker": "RKKE",
+      "uid": "303100b7-4c5c-4fea-8834-d0b675855527"
+    },
+    {
+      "ticker": "LSNG",
+      "uid": "02bdfa7c-ae6c-4cbd-9784-f3457dfdcedc"
+    },
+    {
+      "ticker": "RENI",
+      "uid": "a57d3a52-63d5-417b-b66d-c6114587f0ea"
+    },
+    {
+      "ticker": "MRKC",
+      "uid": "e79680ec-c32b-4b14-bf6f-8ef6e143a41b"
+    },
+    {
+      "ticker": "POSI",
+      "uid": "de08affe-4fbd-454e-9fd1-46a81b23f870"
+    },
+    {
+      "ticker": "KROT",
+      "uid": "14d147b9-d977-438a-80c0-441e5589da30"
+    },
+    {
+      "ticker": "KAZT",
+      "uid": "31defde8-cdc3-42bb-96bd-e2b42e825b62"
+    },
+    {
+      "ticker": "SIBN",
+      "uid": "9ba367af-dfbd-4d9c-8730-4b1d5a47756e"
+    },
+    {
+      "ticker": "YAKG",
+      "uid": "6e24431b-12fc-423b-b566-f2919ebd5a53"
+    },
+    {
+      "ticker": "TGKB",
+      "uid": "ba9b6eb4-614c-4be8-bdba-dd86cdfece64"
+    },
+    {
+      "ticker": "KLSB",
+      "uid": "8a23dd3b-04bb-41f3-a531-1bc3c08deecf"
+    },
+    {
+      "ticker": "CHMK",
+      "uid": "b5e26096-d013-48e4-b2a9-2f38b6090feb"
+    },
+    {
+      "ticker": "RNFT",
+      "uid": "c7485564-ed92-45fd-a724-1214aa202904"
+    },
+    {
+      "ticker": "MRKZ",
+      "uid": "05dbfebd-6bc4-4645-8f21-dcf05476999d"
+    },
+    {
+      "ticker": "APTK",
+      "uid": "bba7a33f-48a8-4788-8469-3a9f5d668e0a"
+    },
+    {
+      "ticker": "QIWI",
+      "uid": "120a928b-b2d6-45d7-a445-f6e49614ae6d"
+    },
+    {
+      "ticker": "HYDR",
+      "uid": "62560f05-3fd0-4d65-88f0-a27f249cc6de"
+    },
+    {
+      "ticker": "NLMK",
+      "uid": "161eb0d0-aaac-4451-b374-f5d0eeb1b508"
+    },
+    {
+      "ticker": "BELU",
+      "uid": "974077c4-d893-4058-9314-8f1b64a444b8"
+    },
+    {
+      "ticker": "LNZLP",
+      "uid": "28fdec79-fcf0-40cb-b53c-586179f024e5"
+    },
+    {
+      "ticker": "YNDX",
+      "uid": "10e17a87-3bce-4a1f-9dfc-720396f98a3c"
+    },
+    {
+      "ticker": "SFIN",
+      "uid": "55371b1f-8f7c-4c12-9d93-386fae5ec12a"
+    },
+    {
+      "ticker": "FESH",
+      "uid": "11bc2246-6fde-4478-93f1-4ab90ceb4a51"
+    },
+    {
+      "ticker": "RASP",
+      "uid": "435107a9-a262-4a31-8a9b-2ee6f81c1184"
+    },
+    {
+      "ticker": "NOMPP",
+      "uid": "7e58375b-01a1-4a98-850d-0f352eb078af"
+    },
+    {
+      "ticker": "SGZH",
+      "uid": "7bedd86b-478d-4742-a28c-29d27f8dbc7d"
+    },
+    {
+      "ticker": "LSNGP",
+      "uid": "698d1493-f1f7-4eff-a4d1-2e509c77bfb8"
+    },
+    {
+      "ticker": "GMKN",
+      "uid": "509edd0c-129c-4ee2-934d-7f6246126da1"
+    },
+    {
+      "ticker": "LIFE",
+      "uid": "01646e53-8d55-423a-a9c1-be454af0cbfd"
+    },
+    {
+      "ticker": "UPRO",
+      "uid": "664921c5-b552-47a6-9ced-8735a3c6ca8a"
+    },
+    {
+      "ticker": "MRKS",
+      "uid": "b135075c-3a05-42cf-8f55-86674d63a49d"
+    },
+    {
+      "ticker": "MSNG",
+      "uid": "98fc1318-6990-4147-b0d1-b10999326461"
+    },
+    {
+      "ticker": "AFKS",
+      "uid": "53b67587-96eb-4b41-8e0c-d2e3c0bdd234"
+    },
+    {
+      "ticker": "PLZL",
+      "uid": "10620843-28ce-44e8-80c2-f26ceb1bd3e1"
+    },
+    {
+      "ticker": "LKOH",
+      "uid": "02cfdf61-6298-4c0f-a9ca-9cabc82afaf3"
+    },
+    {
+      "ticker": "DELI",
+      "uid": "df58ca03-aed0-4e1c-97fb-54a01dfb539e"
+    },
+    {
+      "ticker": "MGKL",
+      "uid": "4dc99cf8-cb71-4dca-a74d-f70483f4d7a7"
+    },
+    {
+      "ticker": "LEAS",
+      "uid": "ab29b599-4cb4-4b57-9c17-02b140708bf7"
+    },
+    {
+      "ticker": "UDMN",
+      "uid": "42f11771-17c4-45d2-8fc5-153585b5c187"
+    },
+    {
+      "ticker": "NMTP",
+      "uid": "93ed8e88-2de2-4aec-a920-3384d24ecb2a"
+    },
+    {
+      "ticker": "TGKA",
+      "uid": "d74daf58-22c3-4e44-8ada-471e404fb795"
+    },
+    {
+      "ticker": "CNTLP",
+      "uid": "1fae90d9-fb73-4c28-bdc0-11f47f991a05"
+    },
+    {
+      "ticker": "MTLRP",
+      "uid": "c1a3c440-f51c-4a75-a400-42a2a74f5f2b"
+    },
+    {
+      "ticker": "MRKY",
+      "uid": "c41a8e78-e4ee-4aa1-869a-9eff103b260a"
+    }
+  ],
+  "futures": [
+    {
+      "ticker": "LEZ4",
+      "uid": "342b5d76-f63a-467c-89b0-190ef14d6514",
+      "basic_asset": "LEAS",
+      "basic_asset_size": 1,
+      "expiration_date": "2024-12-20T00:00:00Z"
+    },
+    {
+      "ticker": "BEZ4",
+      "uid": "f9ff9693-448f-483d-bf45-e64b81b45f24",
+      "basic_asset": "BELU",
+      "basic_asset_size": 1,
+      "expiration_date": "2024-12-20T00:00:00Z"
+    },
+    {
+      "ticker": "WUU4",
+      "uid": "54057082-3c91-4234-ade9-75d6ff23f1e2",
+      "basic_asset": "WUSH",
+      "basic_asset_size": 10,
+      "expiration_date": "2024-09-20T00:00:00Z"
+    },
+    {
+      "ticker": "TNZ4",
+      "uid": "43f74772-dca8-46db-8e11-8c30e6d3ff6b",
+      "basic_asset": "TRNFP",
+      "basic_asset_size": 1,
+      "expiration_date": "2024-12-20T00:00:00Z"
+    },
+    {
+      "ticker": "PIU4",
+      "uid": "ccf5b266-8774-4d67-afb9-d707111e58c0",
+      "basic_asset": "PIKK",
+      "basic_asset_size": 10,
+      "expiration_date": "2024-09-20T00:00:00Z"
+    },
+    {
+      "ticker": "NKU4",
+      "uid": "30e98152-d997-49df-8b7f-1378805e6bda",
+      "basic_asset": "NVTK",
+      "basic_asset_size": 100,
+      "expiration_date": "2024-09-20T00:00:00Z"
+    },
+    {
+      "ticker": "S0U4",
+      "uid": "cfa506db-f784-4392-a032-2ef3d8d3b5fc",
+      "basic_asset": "SOFL",
+      "basic_asset_size": 10,
+      "expiration_date": "2024-09-20T00:00:00Z"
+    },
+    {
+      "ticker": "ISU4",
+      "uid": "fb4c10fd-9833-4bc8-9de8-e260571675ba",
+      "basic_asset": "ABIO",
+      "basic_asset_size": 10,
+      "expiration_date": "2024-09-20T00:00:00Z"
+    },
+    {
+      "ticker": "FEZ4",
+      "uid": "a614d8e5-d758-474f-ba09-3a8d3cc6a5ef",
+      "basic_asset": "FESH",
+      "basic_asset_size": 100,
+      "expiration_date": "2024-12-20T00:00:00Z"
+    },
+    {
+      "ticker": "PIZ4",
+      "uid": "25c83008-4232-4f28-b6f2-a8b38de83592",
+      "basic_asset": "PIKK",
+      "basic_asset_size": 10,
+      "expiration_date": "2024-12-20T00:00:00Z"
+    },
+    {
+      "ticker": "MNZ4",
+      "uid": "3d76ff55-2d3e-4033-bf27-d2d3c1e2c028",
+      "basic_asset": "MGNT",
+      "basic_asset_size": 1,
+      "expiration_date": "2024-12-20T00:00:00Z"
+    },
+    {
+      "ticker": "SGZ4",
+      "uid": "3ba39347-d68c-41e3-a36d-8254d9dee5cf",
+      "basic_asset": "SNGSP",
+      "basic_asset_size": 1000,
+      "expiration_date": "2024-12-20T00:00:00Z"
+    },
+    {
+      "ticker": "BDU4",
+      "uid": "56cbb620-2cb9-45e2-a0da-c1a042dc883d",
+      "basic_asset": "BIDU",
+      "basic_asset_size": 1,
+      "expiration_date": "2024-09-20T00:00:00Z"
+    },
+    {
+      "ticker": "RUU4",
+      "uid": "2b6a646f-a719-4d30-bc96-a7ef981837b5",
+      "basic_asset": "RNFT",
+      "basic_asset_size": 10,
+      "expiration_date": "2024-09-19T00:00:00Z"
+    },
+    {
+      "ticker": "WUM5",
+      "uid": "2a9d78e7-6165-4507-b312-09afc7e37eee",
+      "basic_asset": "WUSH",
+      "basic_asset_size": 10,
+      "expiration_date": "2025-06-20T00:00:00Z"
+    },
+    {
+      "ticker": "MNH5",
+      "uid": "174d8b83-abf9-4b08-a094-84f86b8e4858",
+      "basic_asset": "MGNT",
+      "basic_asset_size": 1,
+      "expiration_date": "2025-03-21T00:00:00Z"
+    },
+    {
+      "ticker": "CMH5",
+      "uid": "79dceba9-2049-49b3-b055-f6ca63f0ef0f",
+      "basic_asset": "CBOM",
+      "basic_asset_size": 1000,
+      "expiration_date": "2025-03-21T00:00:00Z"
+    },
+    {
+      "ticker": "LEU4",
+      "uid": "21cb3542-21d3-429d-85af-b5c090036324",
+      "basic_asset": "LEAS",
+      "basic_asset_size": 1,
+      "expiration_date": "2024-09-19T00:00:00Z"
+    },
+    {
+      "ticker": "MVU4",
+      "uid": "7f54e92e-99e1-4b6b-84ff-6202444945b1",
+      "basic_asset": "MVID",
+      "basic_asset_size": 10,
+      "expiration_date": "2024-09-20T00:00:00Z"
+    },
+    {
+      "ticker": "BEU4",
+      "uid": "1dbe317e-bc4a-4693-8387-92b51bae7ca0",
+      "basic_asset": "BELU",
+      "basic_asset_size": 1,
+      "expiration_date": "2024-09-20T00:00:00Z"
+    },
+    {
+      "ticker": "RNU4",
+      "uid": "1fa26988-cc67-4b46-90a5-e7f3fbe9b76c",
+      "basic_asset": "ROSN",
+      "basic_asset_size": 100,
+      "expiration_date": "2024-09-20T00:00:00Z"
+    },
+    {
+      "ticker": "MCU4",
+      "uid": "6b13463f-4e69-47d8-83fe-5ba668d9d56c",
+      "basic_asset": "MTLR",
+      "basic_asset_size": 100,
+      "expiration_date": "2024-09-20T00:00:00Z"
+    },
+    {
+      "ticker": "PHZ4",
+      "uid": "341cf4d5-f129-4bf7-b477-90302a504573",
+      "basic_asset": "PHOR",
+      "basic_asset_size": 1,
+      "expiration_date": "2024-12-20T00:00:00Z"
+    },
+    {
+      "ticker": "CMM5",
+      "uid": "1dbf0b15-cf38-48df-8446-3469046229ef",
+      "basic_asset": "CBOM",
+      "basic_asset_size": 1000,
+      "expiration_date": "2025-06-20T00:00:00Z"
+    },
+    {
+      "ticker": "LKZ4",
+      "uid": "1aac4ed6-111f-4087-a624-be36ab741eec",
+      "basic_asset": "LKOH",
+      "basic_asset_size": 10,
+      "expiration_date": "2024-12-20T00:00:00Z"
+    },
+    {
+      "ticker": "SNZ4",
+      "uid": "6f863843-bb60-44a7-bbe0-b57c9273834a",
+      "basic_asset": "SNGS",
+      "basic_asset_size": 1000,
+      "expiration_date": "2024-12-20T00:00:00Z"
+    },
+    {
+      "ticker": "VKM5",
+      "uid": "31da47fd-7750-4269-bead-890a84cff4e7",
+      "basic_asset": "VKCO",
+      "basic_asset_size": 10,
+      "expiration_date": "2025-06-20T00:00:00Z"
+    },
+    {
+      "ticker": "CHU4",
+      "uid": "11066db2-a585-4494-a64d-fbf99eb9e987",
+      "basic_asset": "CHMF",
+      "basic_asset_size": 100,
+      "expiration_date": "2024-09-20T00:00:00Z"
+    },
+    {
+      "ticker": "TTZ4",
+      "uid": "6d70489e-71fd-4ec2-978c-b45f3364ad7e",
+      "basic_asset": "TATN",
+      "basic_asset_size": 100,
+      "expiration_date": "2024-12-20T00:00:00Z"
+    },
+    {
+      "ticker": "MTU4",
+      "uid": "de0d3fef-cc95-4320-8922-c50307ce296c",
+      "basic_asset": "MTSS",
+      "basic_asset_size": 100,
+      "expiration_date": "2024-09-20T00:00:00Z"
+    },
+    {
+      "ticker": "BSM5",
+      "uid": "cf137cab-d51a-4b1f-ac33-5d972a5960ec",
+      "basic_asset": "BSPB",
+      "basic_asset_size": 10,
+      "expiration_date": "2025-06-20T00:00:00Z"
+    },
+    {
+      "ticker": "PZU4",
+      "uid": "7b1c32b1-aa93-4539-a6c8-f172c3797d16",
+      "basic_asset": "PLZL",
+      "basic_asset_size": 10,
+      "expiration_date": "2024-09-20T00:00:00Z"
+    },
+    {
+      "ticker": "GKU4",
+      "uid": "ee9c0333-f0a3-4ea9-a7ae-11da20447e0f",
+      "basic_asset": "GMKN",
+      "basic_asset_size": 10,
+      "expiration_date": "2024-09-20T00:00:00Z"
+    },
+    {
+      "ticker": "HYZ4",
+      "uid": "902f242f-0a05-4b80-a289-15362874c785",
+      "basic_asset": "HYDR",
+      "basic_asset_size": 10000,
+      "expiration_date": "2024-12-20T00:00:00Z"
+    },
+    {
+      "ticker": "ASZ4",
+      "uid": "3e7e7330-603a-412b-a047-a3cd7905cf96",
+      "basic_asset": "ASTR",
+      "basic_asset_size": 1,
+      "expiration_date": "2024-12-20T00:00:00Z"
+    },
+    {
+      "ticker": "RNZ5",
+      "uid": "fc3823ad-dfea-42e1-afb2-6ae27e45cafb",
+      "basic_asset": "ROSN",
+      "basic_asset_size": 100,
+      "expiration_date": "2025-12-19T00:00:00Z"
+    },
+    {
+      "ticker": "AKZ4",
+      "uid": "5606e505-fa3a-4550-946f-78961de96913",
+      "basic_asset": "AFKS",
+      "basic_asset_size": 1000,
+      "expiration_date": "2024-12-20T00:00:00Z"
+    },
+    {
+      "ticker": "BNZ4",
+      "uid": "ecd2c179-52cb-4f14-b92a-fe69cc06f695",
+      "basic_asset": "BANE",
+      "basic_asset_size": 1,
+      "expiration_date": "2024-12-20T00:00:00Z"
+    },
+    {
+      "ticker": "RNH6",
+      "uid": "39a5b14b-a94d-4050-ad08-c779059d9287",
+      "basic_asset": "ROSN",
+      "basic_asset_size": 100,
+      "expiration_date": "2026-03-20T00:00:00Z"
+    },
+    {
+      "ticker": "ALZ4",
+      "uid": "8c7aede9-da7f-431c-81ae-087170c1f699",
+      "basic_asset": "ALRS",
+      "basic_asset_size": 100,
+      "expiration_date": "2024-12-20T00:00:00Z"
+    },
+    {
+      "ticker": "SNU4",
+      "uid": "66982387-9798-433d-a53d-6bed0a6b3e8b",
+      "basic_asset": "SNGS",
+      "basic_asset_size": 1000,
+      "expiration_date": "2024-09-20T00:00:00Z"
+    },
+    {
+      "ticker": "MTZ4",
+      "uid": "26624f23-f357-46f6-ae0c-7d988bafc7b7",
+      "basic_asset": "MTSS",
+      "basic_asset_size": 100,
+      "expiration_date": "2024-12-20T00:00:00Z"
+    },
+    {
+      "ticker": "BNU4",
+      "uid": "f646f064-1c8a-4e86-849e-1d547baf007f",
+      "basic_asset": "BANE",
+      "basic_asset_size": 1,
+      "expiration_date": "2024-09-20T00:00:00Z"
+    },
+    {
+      "ticker": "TPU4",
+      "uid": "711c17e6-0194-4a99-a4ea-a36b13ebb291",
+      "basic_asset": "TATNP",
+      "basic_asset_size": 10,
+      "expiration_date": "2024-09-19T00:00:00Z"
+    },
+    {
+      "ticker": "MVZ4",
+      "uid": "a0c63294-7c9f-4e72-a656-72d78d6010e3",
+      "basic_asset": "MVID",
+      "basic_asset_size": 10,
+      "expiration_date": "2024-12-20T00:00:00Z"
+    },
+    {
+      "ticker": "SRZ4",
+      "uid": "4d5be5ae-67c6-4738-8d42-0f79b858fa65",
+      "basic_asset": "SBER",
+      "basic_asset_size": 100,
+      "expiration_date": "2024-12-20T00:00:00Z"
+    },
+    {
+      "ticker": "SRM5",
+      "uid": "783334b7-804b-4545-9ba2-8d07bda9a6a5",
+      "basic_asset": "SBER",
+      "basic_asset_size": 100,
+      "expiration_date": "2025-06-20T00:00:00Z"
+    },
+    {
+      "ticker": "TTH5",
+      "uid": "0bb6c812-ad0d-403f-b075-3b3687a55afa",
+      "basic_asset": "TATN",
+      "basic_asset_size": 100,
+      "expiration_date": "2025-03-21T00:00:00Z"
+    },
+    {
+      "ticker": "CMU4",
+      "uid": "f4dec6c4-5971-4850-821d-939ad142eb01",
+      "basic_asset": "CBOM",
+      "basic_asset_size": 1000,
+      "expiration_date": "2024-09-20T00:00:00Z"
+    },
+    {
+      "ticker": "BNH5",
+      "uid": "b9d0fa1f-ec0d-43dd-85ed-d012e3320ecc",
+      "basic_asset": "BANE",
+      "basic_asset_size": 1,
+      "expiration_date": "2025-03-21T00:00:00Z"
+    },
+    {
+      "ticker": "BSZ4",
+      "uid": "08aac9f6-a5c5-4c8b-9bd0-eaf9fbd31283",
+      "basic_asset": "BSPB",
+      "basic_asset_size": 10,
+      "expiration_date": "2024-12-20T00:00:00Z"
+    },
+    {
+      "ticker": "SPU4",
+      "uid": "87b1d02e-ffb2-4d6e-acd9-7dbfd73cd701",
+      "basic_asset": "SBERP",
+      "basic_asset_size": 100,
+      "expiration_date": "2024-09-20T00:00:00Z"
+    },
+    {
+      "ticker": "MGU4",
+      "uid": "38eef391-b1c6-417c-8778-857411208dd8",
+      "basic_asset": "MAGN",
+      "basic_asset_size": 1000,
+      "expiration_date": "2024-09-20T00:00:00Z"
+    },
+    {
+      "ticker": "IRU4",
+      "uid": "b16b5d5f-6cf1-41f4-85c3-efb7f3e74bbe",
+      "basic_asset": "IRAO",
+      "basic_asset_size": 10000,
+      "expiration_date": "2024-09-20T00:00:00Z"
+    },
+    {
+      "ticker": "WUH5",
+      "uid": "531dd2e4-dc66-45f8-8c78-e3f422eb9e79",
+      "basic_asset": "WUSH",
+      "basic_asset_size": 10,
+      "expiration_date": "2025-03-21T00:00:00Z"
+    },
+    {
+      "ticker": "VKH5",
+      "uid": "8ec8d6d7-0509-44a6-a8ca-5ab9ffd4359e",
+      "basic_asset": "VKCO",
+      "basic_asset_size": 10,
+      "expiration_date": "2025-03-21T00:00:00Z"
+    },
+    {
+      "ticker": "SPZ4",
+      "uid": "69c539d3-a58f-4b18-ab98-001f2520f580",
+      "basic_asset": "SBERP",
+      "basic_asset_size": 100,
+      "expiration_date": "2024-12-20T00:00:00Z"
+    },
+    {
+      "ticker": "RTZ4",
+      "uid": "8985a2bc-760d-4d1c-beed-44464995362e",
+      "basic_asset": "RTKM",
+      "basic_asset_size": 100,
+      "expiration_date": "2024-12-20T00:00:00Z"
+    },
+    {
+      "ticker": "MGZ4",
+      "uid": "b7f0231c-c2c1-4bb7-adcc-a7297a02b9f1",
+      "basic_asset": "MAGN",
+      "basic_asset_size": 1000,
+      "expiration_date": "2024-12-20T00:00:00Z"
+    },
+    {
+      "ticker": "NMU4",
+      "uid": "263ff2a9-a87f-4882-96f1-a0c47469ffce",
+      "basic_asset": "NLMK",
+      "basic_asset_size": 100,
+      "expiration_date": "2024-09-20T00:00:00Z"
+    },
+    {
+      "ticker": "ALU4",
+      "uid": "fc393758-14d1-483a-8675-e173b14b8b0e",
+      "basic_asset": "ALRS",
+      "basic_asset_size": 100,
+      "expiration_date": "2024-09-20T00:00:00Z"
+    },
+    {
+      "ticker": "SZH5",
+      "uid": "92fa18a8-77a1-4672-9901-fedc5a3ee304",
+      "basic_asset": "SGZH",
+      "basic_asset_size": 1000,
+      "expiration_date": "2025-03-21T00:00:00Z"
+    },
+    {
+      "ticker": "BSU4",
+      "uid": "4c248d49-4638-4545-affb-c8b18f46c4fd",
+      "basic_asset": "BSPB",
+      "basic_asset_size": 10,
+      "expiration_date": "2024-09-20T00:00:00Z"
+    },
+    {
+      "ticker": "TPZ4",
+      "uid": "e14a0917-8804-4e35-9c0f-8fe7573da71b",
+      "basic_asset": "TATNP",
+      "basic_asset_size": 10,
+      "expiration_date": "2024-12-20T00:00:00Z"
+    },
+    {
+      "ticker": "VKU4",
+      "uid": "898abd10-066a-4c4a-98aa-bbb339347065",
+      "basic_asset": "VKCO",
+      "basic_asset_size": 10,
+      "expiration_date": "2024-09-20T00:00:00Z"
+    },
+    {
+      "ticker": "BEM5",
+      "uid": "970a80f8-eb1e-47dd-90f1-80e2ae4f0a1c",
+      "basic_asset": "BELU",
+      "basic_asset_size": 1,
+      "expiration_date": "2025-06-20T00:00:00Z"
+    },
+    {
+      "ticker": "SZU4",
+      "uid": "8a2cfd1e-2dbe-49f2-86d5-ba44886fdf9d",
+      "basic_asset": "SGZH",
+      "basic_asset_size": 1000,
+      "expiration_date": "2024-09-20T00:00:00Z"
+    },
+    {
+      "ticker": "RTU4",
+      "uid": "aa26a245-3a35-4836-914a-5476ba7192b4",
+      "basic_asset": "RTKM",
+      "basic_asset_size": 100,
+      "expiration_date": "2024-09-20T00:00:00Z"
+    },
+    {
+      "ticker": "LKU4",
+      "uid": "56c6194d-f2ef-4004-821e-bc6adaa7b98f",
+      "basic_asset": "LKOH",
+      "basic_asset_size": 10,
+      "expiration_date": "2024-09-20T00:00:00Z"
+    },
+    {
+      "ticker": "ISZ4",
+      "uid": "4a521e40-f0f0-40a5-bd24-37faa8a9e653",
+      "basic_asset": "ABIO",
+      "basic_asset_size": 10,
+      "expiration_date": "2024-12-20T00:00:00Z"
+    },
+    {
+      "ticker": "PSU4",
+      "uid": "70ebf96a-c43a-4bf3-9f15-5ee2a8a8ec66",
+      "basic_asset": "POSI",
+      "basic_asset_size": 1,
+      "expiration_date": "2024-09-20T00:00:00Z"
+    },
+    {
+      "ticker": "WUZ4",
+      "uid": "a0b0a744-ac40-4dba-8793-9a4b10150e04",
+      "basic_asset": "WUSH",
+      "basic_asset_size": 10,
+      "expiration_date": "2024-12-20T00:00:00Z"
+    },
+    {
+      "ticker": "BDZ4",
+      "uid": "717475ca-632a-473d-9ced-319bcd2d0d96",
+      "basic_asset": "BIDU",
+      "basic_asset_size": 1,
+      "expiration_date": "2024-12-20T00:00:00Z"
+    },
+    {
+      "ticker": "NKZ4",
+      "uid": "48a45bb7-fd41-4979-b66d-b5c7e690ddf1",
+      "basic_asset": "NVTK",
+      "basic_asset_size": 100,
+      "expiration_date": "2024-12-20T00:00:00Z"
+    },
+    {
+      "ticker": "VKZ4",
+      "uid": "c799312b-e563-403c-8b47-501bc35f8100",
+      "basic_asset": "VKCO",
+      "basic_asset_size": 10,
+      "expiration_date": "2024-12-20T00:00:00Z"
+    },
+    {
+      "ticker": "CMZ4",
+      "uid": "d7e72e47-934b-46c9-9d50-59fd9879af20",
+      "basic_asset": "CBOM",
+      "basic_asset_size": 1000,
+      "expiration_date": "2024-12-20T00:00:00Z"
+    },
+    {
+      "ticker": "SRU4",
+      "uid": "0bdf8d66-61ce-4707-af40-d4acc6ce079f",
+      "basic_asset": "SBER",
+      "basic_asset_size": 100,
+      "expiration_date": "2024-09-20T00:00:00Z"
+    },
+    {
+      "ticker": "SRH5",
+      "uid": "6f72efd1-8326-458e-ab17-15a58c3463ea",
+      "basic_asset": "SBER",
+      "basic_asset_size": 100,
+      "expiration_date": "2025-03-21T00:00:00Z"
+    },
+    {
+      "ticker": "AFH5",
+      "uid": "26a2934a-6ece-401c-90fd-bd1d84106c3e",
+      "basic_asset": "AFLT",
+      "basic_asset_size": 100,
+      "expiration_date": "2025-03-21T00:00:00Z"
+    },
+    {
+      "ticker": "RLU4",
+      "uid": "65adbb1a-b23c-4b96-9534-0d41a4c6c352",
+      "basic_asset": "RUAL",
+      "basic_asset_size": 100,
+      "expiration_date": "2024-09-20T00:00:00Z"
+    },
+    {
+      "ticker": "RUZ4",
+      "uid": "ecf8c9c8-b7d0-4ce3-aa18-905d2c8cc56c",
+      "basic_asset": "RNFT",
+      "basic_asset_size": 10,
+      "expiration_date": "2024-12-20T00:00:00Z"
+    },
+    {
+      "ticker": "MEZ4",
+      "uid": "b5c22aa7-f278-475c-974c-1be25f04e438",
+      "basic_asset": "MOEX",
+      "basic_asset_size": 100,
+      "expiration_date": "2024-12-20T00:00:00Z"
+    },
+    {
+      "ticker": "IRZ4",
+      "uid": "1682ab16-b21f-4bff-8ecd-d60e7d84f2fb",
+      "basic_asset": "IRAO",
+      "basic_asset_size": 10000,
+      "expiration_date": "2024-12-20T00:00:00Z"
+    },
+    {
+      "ticker": "POU4",
+      "uid": "fc4d7da2-626b-4ba5-aa22-e9dea1ed3858",
+      "basic_asset": "POLY",
+      "basic_asset_size": 10,
+      "expiration_date": "2024-09-20T00:00:00Z"
+    },
+    {
+      "ticker": "MTH5",
+      "uid": "d6b7489d-5cbd-4745-82a0-6c58e4ba255c",
+      "basic_asset": "MTSS",
+      "basic_asset_size": 100,
+      "expiration_date": "2025-03-21T00:00:00Z"
+    },
+    {
+      "ticker": "PSZ4",
+      "uid": "3d54293d-68c5-40fb-983e-b5734f39e171",
+      "basic_asset": "POSI",
+      "basic_asset_size": 1,
+      "expiration_date": "2024-12-20T00:00:00Z"
+    },
+    {
+      "ticker": "AKU4",
+      "uid": "6a85c9d7-c993-4940-94f2-295378084fb0",
+      "basic_asset": "AFKS",
+      "basic_asset_size": 1000,
+      "expiration_date": "2024-09-20T00:00:00Z"
+    },
+    {
+      "ticker": "BSH5",
+      "uid": "010b6c64-59af-4d8c-a3f4-276da6a6396b",
+      "basic_asset": "BSPB",
+      "basic_asset_size": 10,
+      "expiration_date": "2025-03-21T00:00:00Z"
+    },
+    {
+      "ticker": "KMU4",
+      "uid": "95780050-d762-48fb-bf4f-1fe31374fcec",
+      "basic_asset": "KMAZ",
+      "basic_asset_size": 10,
+      "expiration_date": "2024-09-20T00:00:00Z"
+    },
+    {
+      "ticker": "SZZ4",
+      "uid": "796daec1-f7f5-43ec-b563-5f10a8bcf952",
+      "basic_asset": "SGZH",
+      "basic_asset_size": 1000,
+      "expiration_date": "2024-12-20T00:00:00Z"
+    },
+    {
+      "ticker": "RNH5",
+      "uid": "1fa4eabe-c27b-476a-a6d6-a6fc7dc6a58c",
+      "basic_asset": "ROSN",
+      "basic_asset_size": 100,
+      "expiration_date": "2025-03-21T00:00:00Z"
+    },
+    {
+      "ticker": "RNU5",
+      "uid": "912a5b82-e07b-46f6-a31d-7f50c90fbc83",
+      "basic_asset": "ROSN",
+      "basic_asset_size": 100,
+      "expiration_date": "2025-09-19T00:00:00Z"
+    },
+    {
+      "ticker": "RLZ4",
+      "uid": "0c2bd0ff-bedd-4d90-b827-2997508d65ff",
+      "basic_asset": "RUAL",
+      "basic_asset_size": 100,
+      "expiration_date": "2024-12-20T00:00:00Z"
+    },
+    {
+      "ticker": "GZM6",
+      "uid": "61ef86a5-336a-4add-80d9-0f374766336b",
+      "basic_asset": "GAZP",
+      "basic_asset_size": 100,
+      "expiration_date": "2026-06-19T00:00:00Z"
+    },
+    {
+      "ticker": "NMH5",
+      "uid": "01a81175-d409-406e-92be-56fc06c47744",
+      "basic_asset": "NLMK",
+      "basic_asset_size": 100,
+      "expiration_date": "2025-03-21T00:00:00Z"
+    },
+    {
+      "ticker": "MVM5",
+      "uid": "9765abf1-0acd-4c05-bf41-d9fd17faf848",
+      "basic_asset": "MVID",
+      "basic_asset_size": 10,
+      "expiration_date": "2025-06-20T00:00:00Z"
+    },
+    {
+      "ticker": "FSU4",
+      "uid": "9d59cbbc-97c8-4244-9469-ed2a05ddd7fe",
+      "basic_asset": "FEES",
+      "basic_asset_size": 100000,
+      "expiration_date": "2024-09-20T00:00:00Z"
+    },
+    {
+      "ticker": "RNM5",
+      "uid": "9cc9d45d-18ab-4157-a4bf-5d3dd0ab1196",
+      "basic_asset": "ROSN",
+      "basic_asset_size": 100,
+      "expiration_date": "2025-06-20T00:00:00Z"
+    },
+    {
+      "ticker": "ALH5",
+      "uid": "4c258f2c-6286-40c2-a03e-492fd7916ed6",
+      "basic_asset": "ALRS",
+      "basic_asset_size": 100,
+      "expiration_date": "2025-03-21T00:00:00Z"
+    },
+    {
+      "ticker": "GZH5",
+      "uid": "1fa4ea04-638c-4cb2-a085-7a21e611d22e",
+      "basic_asset": "GAZP",
+      "basic_asset_size": 100,
+      "expiration_date": "2025-03-21T00:00:00Z"
+    },
+    {
+      "ticker": "TTU4",
+      "uid": "886afd9a-46df-4e7a-8365-46e447c416f6",
+      "basic_asset": "TATN",
+      "basic_asset_size": 100,
+      "expiration_date": "2024-09-20T00:00:00Z"
+    },
+    {
+      "ticker": "RNM6",
+      "uid": "1385a6f4-cddc-453a-b673-374a370bf542",
+      "basic_asset": "ROSN",
+      "basic_asset_size": 100,
+      "expiration_date": "2026-06-19T00:00:00Z"
+    },
+    {
+      "ticker": "MCZ4",
+      "uid": "2e6d41f0-a416-43c2-bcdd-4bccc796bd5c",
+      "basic_asset": "MTLR",
+      "basic_asset_size": 100,
+      "expiration_date": "2024-12-20T00:00:00Z"
+    },
+    {
+      "ticker": "FLH5",
+      "uid": "11b7c33e-7ff9-4f67-839e-264d7b26621e",
+      "basic_asset": "FLOT",
+      "basic_asset_size": 100,
+      "expiration_date": "2025-03-21T00:00:00Z"
+    },
+    {
+      "ticker": "SGU4",
+      "uid": "dd03b656-2775-4aa2-8e46-c6e3d9bb0e6a",
+      "basic_asset": "SNGSP",
+      "basic_asset_size": 1000,
+      "expiration_date": "2024-09-20T00:00:00Z"
+    },
+    {
+      "ticker": "GZZ5",
+      "uid": "08b46842-dda4-4764-a891-e06d216c2ef0",
+      "basic_asset": "GAZP",
+      "basic_asset_size": 100,
+      "expiration_date": "2025-12-19T00:00:00Z"
+    },
+    {
+      "ticker": "AFZ4",
+      "uid": "9a8bc131-85d9-4e50-81e3-2185da866622",
+      "basic_asset": "AFLT",
+      "basic_asset_size": 100,
+      "expiration_date": "2024-12-20T00:00:00Z"
+    },
+    {
+      "ticker": "TIU4",
+      "uid": "c8c39930-6099-4894-aa24-b2a57512fd17",
+      "basic_asset": "TCSG",
+      "basic_asset_size": 10,
+      "expiration_date": "2024-09-20T00:00:00Z"
+    },
+    {
+      "ticker": "GZM5",
+      "uid": "9bf71a7c-22fd-4bb7-92d7-851ff3c3c0d1",
+      "basic_asset": "GAZP",
+      "basic_asset_size": 100,
+      "expiration_date": "2025-06-20T00:00:00Z"
+    },
+    {
+      "ticker": "SOU4",
+      "uid": "c273b60c-96ec-4fd3-8b32-d3ed77c081f0",
+      "basic_asset": "SIBN",
+      "basic_asset_size": 10,
+      "expiration_date": "2024-09-20T00:00:00Z"
+    },
+    {
+      "ticker": "PHU4",
+      "uid": "0a5932e8-caab-4f7a-8027-b18fc45205e1",
+      "basic_asset": "PHOR",
+      "basic_asset_size": 1,
+      "expiration_date": "2024-09-20T00:00:00Z"
+    },
+    {
+      "ticker": "SSU4",
+      "uid": "6c71eaca-402c-41e2-997f-619c6036afb0",
+      "basic_asset": "SMLT",
+      "basic_asset_size": 1,
+      "expiration_date": "2024-09-20T00:00:00Z"
+    },
+    {
+      "ticker": "S0Z4",
+      "uid": "48cedb4a-0b11-4765-bcb4-a234498c8f1d",
+      "basic_asset": "SOFL",
+      "basic_asset_size": 10,
+      "expiration_date": "2024-12-20T00:00:00Z"
+    },
+    {
+      "ticker": "RNZ4",
+      "uid": "1fa328ef-9c76-4d7d-b691-514b59dab68e",
+      "basic_asset": "ROSN",
+      "basic_asset_size": 100,
+      "expiration_date": "2024-12-20T00:00:00Z"
+    },
+    {
+      "ticker": "KMM5",
+      "uid": "9ce7d15c-f46a-4fd5-8a4c-32e77a63278c",
+      "basic_asset": "KMAZ",
+      "basic_asset_size": 10,
+      "expiration_date": "2025-06-20T00:00:00Z"
+    },
+    {
+      "ticker": "SCU4",
+      "uid": "dc0a501b-6d25-4039-8feb-1cf3710309c3",
+      "basic_asset": "SVCB",
+      "basic_asset_size": 100,
+      "expiration_date": "2024-09-20T00:00:00Z"
+    },
+    {
+      "ticker": "KMZ4",
+      "uid": "3199d96b-0c35-40fe-a4bd-696a95decb9d",
+      "basic_asset": "KMAZ",
+      "basic_asset_size": 10,
+      "expiration_date": "2024-12-20T00:00:00Z"
+    },
+    {
+      "ticker": "SOZ4",
+      "uid": "45b15ab5-acf3-4945-b1a7-2fb012d43f3a",
+      "basic_asset": "SIBN",
+      "basic_asset_size": 10,
+      "expiration_date": "2024-12-20T00:00:00Z"
+    },
+    {
+      "ticker": "BEH5",
+      "uid": "fd778069-ffba-49d6-9bc6-afcfff214f00",
+      "basic_asset": "BELU",
+      "basic_asset_size": 1,
+      "expiration_date": "2025-03-21T00:00:00Z"
+    },
+    {
+      "ticker": "MVH5",
+      "uid": "7807e771-0161-4023-98e4-516458a6fadc",
+      "basic_asset": "MVID",
+      "basic_asset_size": 10,
+      "expiration_date": "2025-03-21T00:00:00Z"
+    },
+    {
+      "ticker": "MEU4",
+      "uid": "94e0db16-8964-4dc6-85f3-81e77eca25a8",
+      "basic_asset": "MOEX",
+      "basic_asset_size": 100,
+      "expiration_date": "2024-09-20T00:00:00Z"
+    },
+    {
+      "ticker": "SZM5",
+      "uid": "ac4c7c68-9366-4298-b507-0f82dd10f5bc",
+      "basic_asset": "SGZH",
+      "basic_asset_size": 1000,
+      "expiration_date": "2025-06-20T00:00:00Z"
+    },
+    {
+      "ticker": "SSZ4",
+      "uid": "90fcbe7a-24b3-4d52-ab27-3fd78b44868a",
+      "basic_asset": "SMLT",
+      "basic_asset_size": 1,
+      "expiration_date": "2024-12-20T00:00:00Z"
+    },
+    {
+      "ticker": "TNU4",
+      "uid": "26ddcd0e-42f9-4df9-bfc7-ee3d7deb9653",
+      "basic_asset": "TRNFP",
+      "basic_asset_size": 1,
+      "expiration_date": "2024-09-20T00:00:00Z"
+    },
+    {
+      "ticker": "GKZ4",
+      "uid": "687e737c-2a1f-4ca1-84db-cb622fe91b98",
+      "basic_asset": "GMKN",
+      "basic_asset_size": 10,
+      "expiration_date": "2024-12-20T00:00:00Z"
+    },
+    {
+      "ticker": "FLZ4",
+      "uid": "71085b21-b0b7-430d-ae46-597a3f1c8d9c",
+      "basic_asset": "FLOT",
+      "basic_asset_size": 100,
+      "expiration_date": "2024-12-20T00:00:00Z"
+    },
+    {
+      "ticker": "PZZ4",
+      "uid": "a482030a-2524-4876-af56-ef4035ea09b8",
+      "basic_asset": "PLZL",
+      "basic_asset_size": 10,
+      "expiration_date": "2024-12-20T00:00:00Z"
+    },
+    {
+      "ticker": "SCZ4",
+      "uid": "ebbb0ab7-526d-4653-8d61-15ee2aa72805",
+      "basic_asset": "SVCB",
+      "basic_asset_size": 100,
+      "expiration_date": "2024-12-20T00:00:00Z"
+    },
+    {
+      "ticker": "LKM5",
+      "uid": "3fcb9f40-645b-4717-a311-8a781790b6d4",
+      "basic_asset": "LKOH",
+      "basic_asset_size": 10,
+      "expiration_date": "2025-06-20T00:00:00Z"
+    },
+    {
+      "ticker": "FEU4",
+      "uid": "e7a91df6-deee-4f2c-b07b-f70bf696a98e",
+      "basic_asset": "FESH",
+      "basic_asset_size": 100,
+      "expiration_date": "2024-09-19T00:00:00Z"
+    },
+    {
+      "ticker": "HYU4",
+      "uid": "26fe4d6f-788f-43a4-b3db-31415d2f3d08",
+      "basic_asset": "HYDR",
+      "basic_asset_size": 10000,
+      "expiration_date": "2024-09-20T00:00:00Z"
+    },
+    {
+      "ticker": "GZU5",
+      "uid": "be07c358-185f-4cdd-a2f9-8fc06cfb20ce",
+      "basic_asset": "GAZP",
+      "basic_asset_size": 100,
+      "expiration_date": "2025-09-19T00:00:00Z"
+    },
+    {
+      "ticker": "KMH5",
+      "uid": "32ef7f2c-729f-430c-ba7b-b15901c72813",
+      "basic_asset": "KMAZ",
+      "basic_asset_size": 10,
+      "expiration_date": "2025-03-21T00:00:00Z"
+    },
+    {
+      "ticker": "CHZ4",
+      "uid": "23220127-7e5d-42c6-ae93-57bfc63fdbbd",
+      "basic_asset": "CHMF",
+      "basic_asset_size": 100,
+      "expiration_date": "2024-12-20T00:00:00Z"
+    },
+    {
+      "ticker": "LKH5",
+      "uid": "92e9295c-3731-4d8e-af2c-1e09ab8e5cd2",
+      "basic_asset": "LKOH",
+      "basic_asset_size": 10,
+      "expiration_date": "2025-03-21T00:00:00Z"
+    },
+    {
+      "ticker": "AFU4",
+      "uid": "5f7cb61a-33eb-46e5-a0e7-24725273d009",
+      "basic_asset": "AFLT",
+      "basic_asset_size": 100,
+      "expiration_date": "2024-09-20T00:00:00Z"
+    },
+    {
+      "ticker": "GZH6",
+      "uid": "1f5ed4d9-7b91-42de-a332-63617124753a",
+      "basic_asset": "GAZP",
+      "basic_asset_size": 100,
+      "expiration_date": "2026-03-20T00:00:00Z"
+    },
+    {
+      "ticker": "FLM5",
+      "uid": "14198a0d-95ec-4556-96bc-6208d17ed106",
+      "basic_asset": "FLOT",
+      "basic_asset_size": 100,
+      "expiration_date": "2025-06-20T00:00:00Z"
+    },
+    {
+      "ticker": "NMZ4",
+      "uid": "a41968e0-b0fc-47bf-b8ca-5bf045dcf274",
+      "basic_asset": "NLMK",
+      "basic_asset_size": 100,
+      "expiration_date": "2024-12-20T00:00:00Z"
+    },
+    {
+      "ticker": "ASU4",
+      "uid": "ad82b3f2-613e-467f-8681-f097a87524e3",
+      "basic_asset": "ASTR",
+      "basic_asset_size": 1,
+      "expiration_date": "2024-09-20T00:00:00Z"
+    },
+    {
+      "ticker": "GZZ4",
+      "uid": "1fa329a0-5c2d-42a6-a532-d9244845aad2",
+      "basic_asset": "GAZP",
+      "basic_asset_size": 100,
+      "expiration_date": "2024-12-20T00:00:00Z"
+    },
+    {
+      "ticker": "BBU4",
+      "uid": "340ff96b-2c2d-403d-9585-8d0166883aec",
+      "basic_asset": "BABA",
+      "basic_asset_size": 1,
+      "expiration_date": "2024-09-20T00:00:00Z"
+    },
+    {
+      "ticker": "FLU4",
+      "uid": "71d13df6-e403-4877-a118-de9114cba759",
+      "basic_asset": "FLOT",
+      "basic_asset_size": 100,
+      "expiration_date": "2024-09-20T00:00:00Z"
+    },
+    {
+      "ticker": "GZU4",
+      "uid": "1fa26857-4ebe-41e9-9d4d-c7738499bdcb",
+      "basic_asset": "GAZP",
+      "basic_asset_size": 100,
+      "expiration_date": "2024-09-20T00:00:00Z"
+    },
+    {
+      "ticker": "POZ4",
+      "uid": "93cf5447-20f7-463c-815a-95347ca99123",
+      "basic_asset": "POLY",
+      "basic_asset_size": 10,
+      "expiration_date": "2024-12-20T00:00:00Z"
+    },
+    {
+      "ticker": "MNU4",
+      "uid": "a5a54014-a1b8-49a7-8c9c-8d04a97725dc",
+      "basic_asset": "MGNT",
+      "basic_asset_size": 1,
+      "expiration_date": "2024-09-20T00:00:00Z"
+    },
+    {
+      "ticker": "FSZ4",
+      "uid": "02b42475-7cce-4db0-99ec-e9ab904f4117",
+      "basic_asset": "FEES",
+      "basic_asset_size": 100000,
+      "expiration_date": "2024-12-20T00:00:00Z"
+    },
+    {
+      "ticker": "BNM5",
+      "uid": "a4811010-1dcf-4bb3-ac83-4c83a507834e",
+      "basic_asset": "BANE",
+      "basic_asset_size": 1,
+      "expiration_date": "2025-06-20T00:00:00Z"
+    }
+  ]
+}
