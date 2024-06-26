@@ -1,13 +1,26 @@
-from typing import Literal, Optional
+from decimal import Decimal
+from typing import Optional
 from pydantic import BaseModel
 from datetime import datetime
 
 class Instrument(BaseModel):
     ticker: str
     uid: str
-    basic_asset: Optional[str] = None
-    basic_asset_size: Optional[int] = None
-    expiration_date: Optional[datetime] = None
+
+class Future(Instrument):
+    basic_asset: Optional[str]
+    basic_asset_size: Optional[int]
+    expiration_date: Optional[datetime]
+
+class Stock(Instrument):
+    pass
 
 class Instruments(BaseModel):
-    instruments: list[Instrument]
+    stocks: list[Stock]
+    futures: list[Future]
+
+
+class Price(BaseModel):
+    uid: str
+    price: Decimal
+
