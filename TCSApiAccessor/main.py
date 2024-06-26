@@ -1,11 +1,12 @@
-from fastapi import FastAPI
-
 from config import load_config
+from fastapi import FastAPI
 from schema import Instruments, Price
 from tcs_api import TCSFetcher, get_last_prices
+import logging
 
 config = load_config()
-
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 app = FastAPI()
 
 fetcher = TCSFetcher(config.tcs)
@@ -30,6 +31,7 @@ async def get_latest_market_prices(uids: list[str]) -> list[Price]:
 
 
 def provide_fixture(filename: str):
+    logger.info('Providing fixtures instead of real data')
     import json
     fixture_path = 'fixtures/' + filename
     with open(fixture_path, 'r') as file:

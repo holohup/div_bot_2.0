@@ -1,8 +1,10 @@
-from dataclasses import dataclass
 import pickle
-from pathlib import Path
-from tcs_api import TCSFetcher
+from dataclasses import dataclass
 from datetime import datetime, timedelta, timezone
+from pathlib import Path
+
+from tcs_api import TCSFetcher
+
 
 @dataclass
 class DummyConfig:

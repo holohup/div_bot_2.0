@@ -1,7 +1,4 @@
 from datetime import datetime
-from decimal import Decimal
-from typing import Optional
-
 from pydantic import BaseModel
 
 
@@ -11,9 +8,9 @@ class Instrument(BaseModel):
 
 
 class Future(Instrument):
-    basic_asset: Optional[str]
-    basic_asset_size: Optional[int]
-    expiration_date: Optional[datetime]
+    basic_asset: str
+    basic_asset_size: int
+    expiration_date: datetime
 
 
 class Stock(Instrument):
@@ -23,8 +20,3 @@ class Stock(Instrument):
 class Instruments(BaseModel):
     stocks: list[Stock]
     futures: list[Future]
-
-
-class Price(BaseModel):
-    uid: str
-    price: Decimal

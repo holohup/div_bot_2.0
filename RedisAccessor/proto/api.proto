@@ -1,0 +1,49 @@
+syntax = "proto3";
+
+package example;
+
+
+import "google/protobuf/timestamp.proto";
+
+// Updates Instruments
+
+message InstrumentsMessage {
+    google.protobuf.Timestamp timestamp = 1;
+    string message = 2;
+}
+
+message InstrumentsResponse {
+    string message = 1;
+}
+
+service InstrumentsService {
+    rpc SaveInstruments(InstrumentsMessage) returns (InstrumentsResponse);
+}
+
+
+// List tickers with at least one future
+
+service ListService {
+    rpc ListRequest (Empty) returns (ListResponse) {}
+}
+
+message Empty {}
+
+message ListResponse {
+    string message = 1;
+}
+
+// Get a json of instruments for a ticker and a timestamp of the last db Updates
+
+service TickerService {
+    rpc TickerRequest (GetTickerData) returns (TickerResponse) {}
+}
+
+message GetTickerData {
+    string message = 1;
+}
+
+message TickerResponse {
+    google.protobuf.Timestamp timestamp = 1;
+    string message = 2;
+}

@@ -2,8 +2,8 @@ services:
   redis:
     image: redis:latest
     restart: always
-    ports:
-      - "6379:6379"
+    # ports:
+    #   - "6379:6379"
     volumes:
       - ./redis/data:/data
     command: ["redis-server", "--save 60 1",  "--loglevel warning"]
@@ -13,11 +13,31 @@ services:
       - TCSApiAccessor/.env
     build:
       context: TCSApiAccessor
+    # ports:
+    #   - "8000:8000"
+    networks:
+      - div_bot_network
+
+  redis_accessor:
+    build:
+      context: RedisAccessor
+    # ports:
+    #   - "50051:50051"
+    networks:
+      - div_bot_network
+    depends_on:
+      - redis
+
+  div_counter_manager:
+    build:
+      context: DivCounterManager
     ports:
       - "8000:8000"
     networks:
       - div_bot_network
-
+    depends_on:
+      - redis_accessor
+      - tcs_api_accessor
 #   db:
 #     build:
 #       context: db

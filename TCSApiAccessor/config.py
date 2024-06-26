@@ -1,5 +1,6 @@
 import os
 from dataclasses import dataclass
+
 from tinkoff.invest.retrying.settings import RetryClientSettings
 
 
@@ -17,7 +18,7 @@ class Config:
 def load_config():
     return Config(
         tcs=TCSConfig(
-            token=os.getenv("TCS_RO_TOKEN"),
+            token=os.getenv('TCS_RO_TOKEN'),
             settings=RetryClientSettings(use_retry=True, max_retry_attempt=100),
         ),
     )
