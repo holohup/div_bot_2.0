@@ -103,9 +103,7 @@ class InstrumentsService(object):
 
 
 class ListServiceStub(object):
-    """List tickers with at least one future
-
-    """
+    """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
         """Constructor.
@@ -121,9 +119,7 @@ class ListServiceStub(object):
 
 
 class ListServiceServicer(object):
-    """List tickers with at least one future
-
-    """
+    """Missing associated documentation comment in .proto file."""
 
     def ListRequest(self, request, context):
         """Missing associated documentation comment in .proto file."""
@@ -148,9 +144,7 @@ def add_ListServiceServicer_to_server(servicer, server):
 
  # This class is part of an EXPERIMENTAL API.
 class ListService(object):
-    """List tickers with at least one future
-
-    """
+    """Missing associated documentation comment in .proto file."""
 
     @staticmethod
     def ListRequest(request,
@@ -247,6 +241,124 @@ class TickerService(object):
             '/example.TickerService/TickerRequest',
             proto_dot_api__pb2.GetTickerData.SerializeToString,
             proto_dot_api__pb2.TickerResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+
+class RedisQueueStub(object):
+    """Put and get messages to the queue
+    """
+
+    def __init__(self, channel):
+        """Constructor.
+
+        Args:
+            channel: A grpc.Channel.
+        """
+        self.PutMessage = channel.unary_unary(
+                '/example.RedisQueue/PutMessage',
+                request_serializer=proto_dot_api__pb2.MessageRequest.SerializeToString,
+                response_deserializer=proto_dot_api__pb2.MessageResponse.FromString,
+                _registered_method=True)
+        self.GetMessage = channel.unary_unary(
+                '/example.RedisQueue/GetMessage',
+                request_serializer=proto_dot_api__pb2.Empty.SerializeToString,
+                response_deserializer=proto_dot_api__pb2.MessageResponse.FromString,
+                _registered_method=True)
+
+
+class RedisQueueServicer(object):
+    """Put and get messages to the queue
+    """
+
+    def PutMessage(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetMessage(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+
+def add_RedisQueueServicer_to_server(servicer, server):
+    rpc_method_handlers = {
+            'PutMessage': grpc.unary_unary_rpc_method_handler(
+                    servicer.PutMessage,
+                    request_deserializer=proto_dot_api__pb2.MessageRequest.FromString,
+                    response_serializer=proto_dot_api__pb2.MessageResponse.SerializeToString,
+            ),
+            'GetMessage': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetMessage,
+                    request_deserializer=proto_dot_api__pb2.Empty.FromString,
+                    response_serializer=proto_dot_api__pb2.MessageResponse.SerializeToString,
+            ),
+    }
+    generic_handler = grpc.method_handlers_generic_handler(
+            'example.RedisQueue', rpc_method_handlers)
+    server.add_generic_rpc_handlers((generic_handler,))
+    server.add_registered_method_handlers('example.RedisQueue', rpc_method_handlers)
+
+
+ # This class is part of an EXPERIMENTAL API.
+class RedisQueue(object):
+    """Put and get messages to the queue
+    """
+
+    @staticmethod
+    def PutMessage(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/example.RedisQueue/PutMessage',
+            proto_dot_api__pb2.MessageRequest.SerializeToString,
+            proto_dot_api__pb2.MessageResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def GetMessage(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/example.RedisQueue/GetMessage',
+            proto_dot_api__pb2.Empty.SerializeToString,
+            proto_dot_api__pb2.MessageResponse.FromString,
             options,
             channel_credentials,
             insecure,

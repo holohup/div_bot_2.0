@@ -14,12 +14,16 @@ class ServiceConfig:
 class DBUpdateConfig:
     pause_between_updates: timedelta
 
+@dataclass
+class QueueConfig:
+    pause_seconds: int
 
 @dataclass
 class Config:
     tcs: ServiceConfig
     redis: ServiceConfig
     db_update: DBUpdateConfig
+    queue: QueueConfig
 
 
 def load_config() -> Config:
@@ -29,7 +33,8 @@ def load_config() -> Config:
             else 'http://tcs_api_accessor:8000'
         ),
         redis=ServiceConfig(
-            address='localhost:50051' if DEBUG else 'redis:50051'
+            address='localhost:50051' if DEBUG else 'redis_accessor:50051'
         ),
         db_update=DBUpdateConfig(timedelta(days=1)),
+        queue=QueueConfig(pause_seconds=1)
     )

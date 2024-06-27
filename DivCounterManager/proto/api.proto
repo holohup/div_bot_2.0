@@ -21,23 +21,17 @@ service InstrumentsService {
 }
 
 
+message Empty {}
+
+message ListResponse {
+    string message = 1;
+}
 // List tickers with at least one future
 
 service ListService {
     rpc ListRequest (Empty) returns (ListResponse) {}
 }
 
-message Empty {}
-
-message ListResponse {
-    string message = 1;
-}
-
-// Get a json of instruments for a ticker and a timestamp of the last db Updates
-
-service TickerService {
-    rpc TickerRequest (GetTickerData) returns (TickerResponse) {}
-}
 
 message GetTickerData {
     string message = 1;
@@ -46,4 +40,26 @@ message GetTickerData {
 message TickerResponse {
     google.protobuf.Timestamp timestamp = 1;
     string message = 2;
+}
+
+
+// Get a json of instruments for a ticker and a timestamp of the last db Updates
+
+service TickerService {
+    rpc TickerRequest (GetTickerData) returns (TickerResponse) {}
+}
+
+
+// Put and get messages to the queue
+service RedisQueue {
+    rpc PutMessage (MessageRequest) returns (MessageResponse);
+    rpc GetMessage (Empty) returns (MessageResponse);
+}
+
+message MessageRequest {
+    string message = 1;
+}
+
+message MessageResponse {
+    string message = 1;
 }

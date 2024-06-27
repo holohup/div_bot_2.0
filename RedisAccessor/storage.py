@@ -28,6 +28,10 @@ class Storage(ABC):
     def drop_by_prefix(self, prefix: str):
         pass
 
+    @abstractmethod
+    def list_all_available_keys(self):
+        pass
+
 
 class RedisStorage(Storage):
     def __init__(self, r) -> None:
@@ -55,3 +59,6 @@ class RedisStorage(Storage):
     def drop_by_prefix(self, prefix: str):
         for key in self._r.scan_iter(prefix+'*'):
             self._r.delete(key)
+
+    def list_all_available_keys(self) -> list[str]:
+        return self._r.keys('*')

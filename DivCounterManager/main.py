@@ -1,8 +1,8 @@
+import asyncio
 import grpc
 from proto import api_pb2_grpc, api_pb2
 from google.protobuf.timestamp_pb2 import Timestamp
-from datetime import datetime, timedelta
-from pydantic import BaseModel
+from datetime import datetime
 from fastapi import FastAPI
 import httpx
 from config import load_config
@@ -17,29 +17,43 @@ app = FastAPI()
 config = load_config()
 channel = grpc.aio.insecure_channel(config.redis.address)
 
+
 def dt_from_ts(ts: Timestamp) -> datetime:
     return datetime.fromtimestamp(ts.seconds + ts.nanos/1e9)
 
 
-@app.get('/')
-async def check_async():
-    instruments = await refresh_instruments()
-    result = await update_instruments(instruments)
-    if result != 'ok':
-        logger.error('Error updating instruments')
-    return result
+async def periodically_check_queue(pause_seconds: int = 10):
+    while True:
+        queue_stub = api_pb2_grpc.RedisQueueStub(channel)
+        message = await queue_stub.GetMessage(api_pb2.Empty())
+        if message.message:
+            print(message.message)
+        await asyncio.sleep(pause_seconds)
 
+
+@app.on_event('startup')
+async def startup():
+    asyncio.create_task(periodically_check_queue(config.queue.pause_seconds))
+    asyncio.create_task(get_instruments_by_ticker('gazp'))
+
+
+@app.get('/')
+async def check_async(message: str):
+    await put_message_in_queue(channel, message)
 
 @app.get('/ticker')
 async def count_dividends(ticker: str):
     matching_instruments = await get_instruments_by_ticker(ticker)
     if not matching_instruments:
         return {
-            'result': f'not found any instruments with futures for ticker {ticker.upper()}'
+            'result':
+            f'instruments not found with futures for ticker {ticker.upper()}'
         }
     i_json = json.loads(matching_instruments)
     instruments = [i_json['stock']]
-    instruments.extend(sorted(i_json['futures'], key=lambda a: a['expiration_date']))
+    instruments.extend(
+        sorted(i_json['futures'], key=lambda a: a['expiration_date'])
+    )
     uids = [instrument['uid'] for instrument in instruments]
     prices = await get_last_prices(uids)
     p_json = json.loads(prices)
@@ -52,7 +66,14 @@ async def count_dividends(ticker: str):
             logger.error(string)
             raise ValueError(string)
         instruments[i]['price'] = p_json[i]['price']
-    return 
+    return instruments
+
+
+@app.get('/list')
+async def get_tickers_list():
+    list_stub = api_pb2_grpc.ListServiceStub(channel)
+    list_response = await list_stub.ListRequest(api_pb2.Empty())
+    return list_response.message
 
 
 async def get_instruments_by_ticker(ticker):
@@ -62,7 +83,8 @@ async def get_instruments_by_ticker(ticker):
     )
     current_time = Timestamp()
     current_time.FromDatetime(datetime.now())
-    if (dt_from_ts(current_time) - dt_from_ts(ticker_response.timestamp)
+    if (
+        dt_from_ts(current_time) - dt_from_ts(ticker_response.timestamp)
         > config.db_update.pause_between_updates
     ):
         logger.info('Updating tickers db')
@@ -79,7 +101,9 @@ async def update_instruments(instruments: str):
     stub = api_pb2_grpc.InstrumentsServiceStub(channel)
     timestamp = Timestamp()
     timestamp.FromDatetime(datetime.now())
-    request = api_pb2.InstrumentsMessage(timestamp=timestamp, message=instruments)
+    request = api_pb2.InstrumentsMessage(
+        timestamp=timestamp, message=instruments
+    )
     response: api_pb2.InstrumentsResponse = await stub.SaveInstruments(request)
     return response.message
 
@@ -92,5 +116,12 @@ async def refresh_instruments():
 
 async def get_last_prices(uids: list[str]):
     async with httpx.AsyncClient() as client:
-        response = await client.post(config.tcs.address + '/get_prices', json=uids)
+        response = await client.post(
+            config.tcs.address + '/get_prices', json=uids
+        )
     return response.text
+
+
+async def put_message_in_queue(channel, message: str):
+    queue_stub = api_pb2_grpc.RedisQueueStub(channel)
+    await queue_stub.PutMessage(api_pb2.MessageRequest(message=message))

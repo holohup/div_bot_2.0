@@ -9,6 +9,7 @@ from schema import Future, Stock
 from storage import RedisStorage, Storage
 from pydantic.json import pydantic_encoder
 from google.protobuf.timestamp_pb2 import Timestamp
+from queue_accessor import RedisQueueAccessor
 
 config: Config = load_config()
 
@@ -51,7 +52,9 @@ class InstrumentScribe:
         return self._keep_only_tickers_with_pairs(result)
 
     def _keep_only_tickers_with_pairs(self, result):
-        return {k: v for k, v in result.items() if (v['futures'] and v['stock'])}
+        return {
+            k: v for k, v in result.items() if (v['futures'] and v['stock'])
+        }
 
     def _set_up_new_ticker(self, result, ticker):
         if ticker not in result.keys():
@@ -84,10 +87,8 @@ class InstrumentsServiceServicer(api_pb2_grpc.InstrumentsServiceServicer):
 
 class ListServiceServicer(api_pb2_grpc.ListServiceServicer):
     def ListRequest(self, request, context):
-        response = api_pb2.ListResponse(
-            message='Tickers with at least one future listed.'
-        )
-        return response
+        response = ', '.join(sorted(prepare_tickers_list()))
+        return api_pb2.ListResponse(message=response)
 
 
 class TickerServiceServicer(api_pb2_grpc.TickerServiceServicer):
@@ -113,12 +114,28 @@ def serve():
     api_pb2_grpc.add_InstrumentsServiceServicer_to_server(
         InstrumentsServiceServicer(), server
     )
-    api_pb2_grpc.add_ListServiceServicer_to_server(ListServiceServicer(), server)
-    api_pb2_grpc.add_TickerServiceServicer_to_server(TickerServiceServicer(), server)
+    api_pb2_grpc.add_ListServiceServicer_to_server(
+        ListServiceServicer(), server
+    )
+    api_pb2_grpc.add_TickerServiceServicer_to_server(
+        TickerServiceServicer(), server
+    )
+    api_pb2_grpc.add_RedisQueueServicer_to_server(
+        RedisQueueAccessor(r, config.channel.name), server
+    )
 
     server.add_insecure_port(config.grpc.address)
     server.start()
     server.wait_for_termination()
+
+
+def prepare_tickers_list():
+    tickers_with_prefix = storage.list_all_available_keys()
+    prefix = config.storage.prefix
+    result = [
+        t.partition(prefix)[-1] for t in tickers_with_prefix if prefix in t
+    ]
+    return result
 
 
 if __name__ == '__main__':

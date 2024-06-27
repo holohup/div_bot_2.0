@@ -23,15 +23,22 @@ class StorageSettings:
 
 
 @dataclass
+class ChannelSettings:
+    name: str
+
+
+@dataclass
 class Config:
     redis: RedisSettings
     grpc: GRPCSettings
     storage: StorageSettings
+    channel: ChannelSettings
 
 
 def load_config(path: str = '') -> Config:
     return Config(
         redis=RedisSettings(host=redis_host, port=6379),
         grpc=GRPCSettings(address='[::]:50051'),
-        storage=StorageSettings(prefix='TICKER:', timestamp_key='timestamp')
+        storage=StorageSettings(prefix='TICKER:', timestamp_key='timestamp'),
+        channel=ChannelSettings(name='lists')
     )
