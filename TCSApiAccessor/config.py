@@ -19,6 +19,6 @@ def load_config():
     return Config(
         tcs=TCSConfig(
             token=os.getenv('TCS_RO_TOKEN'),
-            settings=RetryClientSettings(use_retry=True, max_retry_attempt=100),
+            settings=RetryClientSettings(use_retry=True, max_retry_attempt=100)
         ),
     )

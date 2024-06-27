@@ -14,16 +14,19 @@ class ServiceConfig:
 class DBUpdateConfig:
     pause_between_updates: timedelta
 
+
 @dataclass
-class QueueConfig:
-    pause_seconds: int
+class FinancialConfig:
+    discount_rate: float
+    tax: float
+
 
 @dataclass
 class Config:
     tcs: ServiceConfig
     redis: ServiceConfig
     db_update: DBUpdateConfig
-    queue: QueueConfig
+    finance: FinancialConfig
 
 
 def load_config() -> Config:
@@ -36,5 +39,5 @@ def load_config() -> Config:
             address='localhost:50051' if DEBUG else 'redis_accessor:50051'
         ),
         db_update=DBUpdateConfig(timedelta(days=1)),
-        queue=QueueConfig(pause_seconds=1)
+        finance=FinancialConfig(discount_rate=16.0, tax=13.0)
     )

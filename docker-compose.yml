@@ -30,6 +30,15 @@ services:
       redis:
         condition: service_healthy
 
+  log_accessor:
+    build:
+      context: LogAccessor
+    volumes:
+      - ./log.txt:/app/log.txt
+    networks: 
+      - div_counter_network
+    depends_on:
+      - redis_accessor
 
   div_counter_manager:
     build:

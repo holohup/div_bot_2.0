@@ -1,13 +1,15 @@
 import asyncio
 import grpc
-from proto import api_pb2_grpc, api_pb2
-from google.protobuf.timestamp_pb2 import Timestamp
-from datetime import datetime
 from fastapi import FastAPI
-import httpx
 from config import load_config
 import json
 import logging
+from financial_calculator import FinancialCalculator
+from utils import (
+    get_instruments_by_ticker, fill_instruments_with_prices,
+    prepare_instruments, prepare_prices, fetch_tickers_from_db,
+    send_message_to_log_calculation
+)
 
 
 logging.basicConfig(level=logging.INFO)
@@ -16,112 +18,37 @@ logger = logging.getLogger(__name__)
 app = FastAPI()
 config = load_config()
 channel = grpc.aio.insecure_channel(config.redis.address)
+fin_calc = FinancialCalculator(
+    config.finance.discount_rate, config.finance.tax
+)
 
-
-def dt_from_ts(ts: Timestamp) -> datetime:
-    return datetime.fromtimestamp(ts.seconds + ts.nanos/1e9)
-
-
-async def periodically_check_queue(pause_seconds: int = 10):
-    while True:
-        queue_stub = api_pb2_grpc.RedisQueueStub(channel)
-        message = await queue_stub.GetMessage(api_pb2.Empty())
-        if message.message:
-            print(message.message)
-        await asyncio.sleep(pause_seconds)
-
-
-@app.on_event('startup')
-async def startup():
-    asyncio.create_task(periodically_check_queue(config.queue.pause_seconds))
-    asyncio.create_task(get_instruments_by_ticker('gazp'))
-
-
-@app.get('/')
-async def check_async(message: str):
-    await put_message_in_queue(channel, message)
 
 @app.get('/ticker')
 async def count_dividends(ticker: str):
-    matching_instruments = await get_instruments_by_ticker(ticker)
+    matching_instruments = await get_instruments_by_ticker(
+        ticker, channel, config
+    )
     if not matching_instruments:
         return {
             'result':
-            f'instruments not found with futures for ticker {ticker.upper()}'
+            f'Instrument with futures not found for ticker {ticker.upper()}'
         }
-    i_json = json.loads(matching_instruments)
-    instruments = [i_json['stock']]
-    instruments.extend(
-        sorted(i_json['futures'], key=lambda a: a['expiration_date'])
-    )
-    uids = [instrument['uid'] for instrument in instruments]
-    prices = await get_last_prices(uids)
-    p_json = json.loads(prices)
-    for i in range(len(instruments)):
-        if instruments[i]['uid'] != p_json[i]['uid']:
-            string = (
-                'Something is not right in the ordering of items'
-                f'Instruments = {instruments}, p_json = {p_json}'
-            )
-            logger.error(string)
-            raise ValueError(string)
-        instruments[i]['price'] = p_json[i]['price']
-    return instruments
+    instruments = prepare_instruments(json.loads(matching_instruments))
+    prices_json = await prepare_prices(instruments, config)
+    fill_instruments_with_prices(instruments, prices_json)
+    result = fin_calc.calculate(instruments)
+    await send_message_to_log_calculation(channel, ticker, result)
+    return {
+        'ticker': ticker.upper(), 'dividends': result
+    }
 
 
 @app.get('/list')
 async def get_tickers_list():
-    list_stub = api_pb2_grpc.ListServiceStub(channel)
-    list_response = await list_stub.ListRequest(api_pb2.Empty())
-    return list_response.message
+    list_response = await fetch_tickers_from_db(channel)
+    return list_response
 
 
-async def get_instruments_by_ticker(ticker):
-    ticker_stub = api_pb2_grpc.TickerServiceStub(channel)
-    ticker_response = await ticker_stub.TickerRequest(
-        api_pb2.GetTickerData(message=ticker)
-    )
-    current_time = Timestamp()
-    current_time.FromDatetime(datetime.now())
-    if (
-        dt_from_ts(current_time) - dt_from_ts(ticker_response.timestamp)
-        > config.db_update.pause_between_updates
-    ):
-        logger.info('Updating tickers db')
-        instruments = await refresh_instruments()
-        result = await update_instruments(instruments)
-        if result != 'ok':
-            logger.error('Error updating instruments')
-        else:
-            logger.info('DB updated')
-    return ticker_response.message
-
-
-async def update_instruments(instruments: str):
-    stub = api_pb2_grpc.InstrumentsServiceStub(channel)
-    timestamp = Timestamp()
-    timestamp.FromDatetime(datetime.now())
-    request = api_pb2.InstrumentsMessage(
-        timestamp=timestamp, message=instruments
-    )
-    response: api_pb2.InstrumentsResponse = await stub.SaveInstruments(request)
-    return response.message
-
-
-async def refresh_instruments():
-    async with httpx.AsyncClient() as client:
-        result = await client.get(config.tcs.address + '/get_instruments')
-    return result.text
-
-
-async def get_last_prices(uids: list[str]):
-    async with httpx.AsyncClient() as client:
-        response = await client.post(
-            config.tcs.address + '/get_prices', json=uids
-        )
-    return response.text
-
-
-async def put_message_in_queue(channel, message: str):
-    queue_stub = api_pb2_grpc.RedisQueueStub(channel)
-    await queue_stub.PutMessage(api_pb2.MessageRequest(message=message))
+@app.on_event('startup')
+async def startup():
+    asyncio.create_task(get_instruments_by_ticker('', channel, config))
