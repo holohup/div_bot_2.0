@@ -15,8 +15,7 @@ services:
   
   tcs_api_accessor:
     env_file:
-      - path: TCSApiAccessor/.env
-      required: false
+      - path: TCSApiAccessor/.env.example
       
     build:
       context: TCSApiAccessor
