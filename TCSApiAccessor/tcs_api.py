@@ -1,10 +1,13 @@
 from datetime import datetime, timedelta
 
+from schema import Future, Instrument, Instruments, Price, Stock
 from tinkoff.invest.retrying.aio.client import AsyncRetryingClient
+from tinkoff.invest.schemas import Future as TFuture
+from tinkoff.invest.schemas import FuturesResponse
+from tinkoff.invest.schemas import Instrument as TCSInstrument
+from tinkoff.invest.schemas import RealExchange
+from tinkoff.invest.schemas import Share as TShare
 from tinkoff.invest.utils import quotation_to_decimal
-from tinkoff.invest.schemas import FuturesResponse, Instrument as TCSInstrument, RealExchange, Future as TFuture, Share as TShare
-
-from schema import Instrument, Instruments, Stock, Future, Price
 
 
 class TCSFetcher:
