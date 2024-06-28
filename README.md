@@ -1,3 +1,4 @@
+
 ```mermaid
 graph TD;
     A[User (through web API or telegram bot)] -->|REST: list, ticker (SBER, GAZP, etc..)| B[DividendCounter Manager];
@@ -7,3 +8,4 @@ graph TD;
     E --> F[Log file];
     B -->|gRPC: save_instruments, get_by_ticker, list, PutQueue, GetQueue| G[RedisAccessor (stores K:V, provides Queue)];
     G --> H[Redis];
+```
