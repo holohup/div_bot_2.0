@@ -34,6 +34,6 @@ def load_config():
     return Config(
         bot=BotConfig(token=env('TG_BOT_TOKEN')),
         service=ServiceConfig(
-            url='http://localhost:8000' if DEBUG else 'http://prod:8005'
+            url='http://localhost:8005' if DEBUG else 'http://prod:8005'
         )
     )

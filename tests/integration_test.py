@@ -7,7 +7,7 @@ import pytest
 import os
 import shutil
 
-URL = "http://127.0.0.1:8000"
+URL = "http://127.0.0.1:8005"
 LIST_URL = URL + "/list"
 TICKER_URL = lambda url: URL + "/ticker?ticker=" + url
 
