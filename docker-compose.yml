@@ -15,9 +15,11 @@ services:
   
   tcs_api_accessor:
     env_file:
-      - TCSApiAccessor/.env
+      - TCSApiAccessor/.env.example
     build:
       context: TCSApiAccessor
+      # uncomment the next line to run on a Raspberry Pi
+      # dockerfile: Dockerfile_raspberry_pi
     networks:
       - div_counter_network
 
@@ -44,7 +46,7 @@ services:
     build:
       context: DivCounterManager
     ports:
-      - 8000:8000
+      - 8005:8000
     networks:
       - div_counter_network
     depends_on:

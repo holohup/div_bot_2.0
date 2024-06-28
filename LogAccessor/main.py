@@ -23,13 +23,14 @@ async def periodically_check_queue(pause_seconds: int = 10):
     while True:
         message = await queue_stub.GetMessage(Empty())
         if message.message:
+            logger.info(f'Received message: {message.message}')
             log_calculations(message.message)
         await asyncio.sleep(pause_seconds)
 
 
 def log_calculations(msg: str):
-
     ticker, futures = msg.split('***')
+    logger.info(f'Preparing table for ticker {ticker}')
     futures = [json.loads(f) for f in futures.split('@@@')]
     table_data = [
         [
@@ -43,6 +44,7 @@ def log_calculations(msg: str):
     result = '\n' + ticker + '\n' + table + '\n' + '-' * 80
     with open('log.txt', '+a') as file:
         file.write(result)
+    logger.info('log.txt update complete')
 
 
 async def main():
