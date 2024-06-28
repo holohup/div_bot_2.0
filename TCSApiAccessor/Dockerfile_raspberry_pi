@@ -1,4 +1,4 @@
-FROM arm32v7/python:3.9.15-slim-bullseye as base
+FROM arm32v7/python:3.9.15-slim-bullseye AS base
 ENV PYTHONUNBUFFERED=1 PYTHONDONTWRITEBYTECODE=1
 RUN apt-get update && apt-get -y install gcc
 COPY requirements.txt .

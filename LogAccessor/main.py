@@ -28,7 +28,6 @@ async def periodically_check_queue(pause_seconds: int = 10):
 
 
 def log_calculations(msg: str):
-
     ticker, futures = msg.split('***')
     futures = [json.loads(f) for f in futures.split('@@@')]
     table_data = [
