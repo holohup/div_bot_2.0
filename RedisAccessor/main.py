@@ -10,6 +10,11 @@ from storage import RedisStorage, Storage
 from pydantic.json import pydantic_encoder
 from google.protobuf.timestamp_pb2 import Timestamp
 from queue_accessor import RedisQueueAccessor
+import logging
+
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
 
 config: Config = load_config()
 
@@ -106,6 +111,7 @@ class TickerServiceServicer(api_pb2_grpc.TickerServiceServicer):
                 config.storage.prefix + request.message.upper()
             ),
         )
+        logger.info(f'Returning ticker info and timestamp: {response}')
         return response
 
 

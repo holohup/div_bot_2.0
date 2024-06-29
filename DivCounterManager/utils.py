@@ -24,18 +24,24 @@ def dt_from_ts(ts: Timestamp) -> datetime:
 
 async def get_instruments_by_ticker(ticker, channel, config):
     ticker_stub = TickerServiceStub(channel)
+    logger.info(f'Getting ticker {ticker} from TickerService')
     ticker_response = await ticker_stub.TickerRequest(
         GetTickerData(message=ticker)
     )
+    logger.info('Received data from TickerService')
     current_time = Timestamp()
     current_time.FromDatetime(datetime.now())
     if (
         dt_from_ts(current_time) - dt_from_ts(ticker_response.timestamp)
         > config.db_update.pause_between_updates
     ):
-        logger.info('Updating tickers db')
+        logger.info(
+            f'Updating tickers db from {config.tcs.address + "/get_instruments"}'
+        )
         instruments = await http_get(config.tcs.address + '/get_instruments')
+        logger.info(f'Received instruments: {instruments}')
         result = await update_instruments(instruments, channel)
+        logger.info(f'Updated instruments, {result=}')
         if result != 'ok':
             logger.error('Error updating instruments')
         else:

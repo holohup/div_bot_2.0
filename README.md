@@ -70,3 +70,5 @@ Since the logging server relies on Queue, it works asynchronously and adds the r
 - Increase test coverage, especially for data handling and `None` values
 - If the project is to be developed further, add more docstrings and type annotations
 - Add health check endpoints for Docker Compose
+- Try to use MarkdownV2 and with mono-width font in a telegram bot for a neater table
+- Implement CI/CD using Github Actions: flake8, isort, unit and integration tests, images creation and push to Dockerhub, optionally SSH for deployment.

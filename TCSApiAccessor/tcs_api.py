@@ -1,4 +1,5 @@
 from datetime import datetime, timedelta
+import logging
 
 from schema import Future, Instrument, Instruments, Price, Stock
 from tinkoff.invest.retrying.aio.client import AsyncRetryingClient
@@ -10,6 +11,10 @@ from tinkoff.invest.schemas import Share as TShare
 from tinkoff.invest.utils import quotation_to_decimal
 
 
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
+
 class TCSFetcher:
     """Class to download and transform data.
     The public method is download_instruments()."""
@@ -17,6 +22,7 @@ class TCSFetcher:
     def __init__(self, config):
         self._token = config.token
         self._settings = config.settings
+        logger.info(f'Init complete, {self._token=}, {self._settings=}')
 
     async def download_instruments(self) -> Instruments:
         futures_response: list[TFuture] = await self._fetch_data('futures')
@@ -25,10 +31,11 @@ class TCSFetcher:
         stocks = self._clean_and_transform_data(stocks_response)
         return Instruments(stocks=stocks, futures=futures)
 
-
     async def _fetch_data(self, method: str) -> Instruments:
+        logger.info(f'Downloading instruments for {method=}')
         async with AsyncRetryingClient(self._token, self._settings) as client:
-            response: FuturesResponse = await getattr(client.instruments, method)()
+            response = await getattr(client.instruments, method)()
+        logger.info('Instrument download complete')
         return response.instruments
 
     def _clean_and_transform_data(self, instruments: list[TCSInstrument]) -> list[Instrument]:
@@ -55,18 +62,20 @@ class TCSFetcher:
                 'expiration_date': instrument.expiration_date
             })
             result.append(Future(**params))
+        logger.info('Instrument data preparation complete')
         return result
 
 
 async def get_last_prices(uids: list[str], config) -> list[Price]:
     """Gets latest market prices for the uids."""
 
+    logger.info(f'Getting last prices for {uids}')
     async with AsyncRetryingClient(config.token, settings=config.settings) as client:
         response = await client.market_data.get_last_prices(
             instrument_id=uids
         )
-        result = [Price(
-            uid=p.instrument_uid,
-            price=quotation_to_decimal(p.price)
-        ) for p in response.last_prices]
-        return result
+    result = [Price(
+        uid=p.instrument_uid, price=quotation_to_decimal(p.price)
+    ) for p in response.last_prices]
+    logger.info(f'result preparation complete: {result=}')
+    return result
