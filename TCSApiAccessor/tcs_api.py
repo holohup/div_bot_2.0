@@ -35,7 +35,7 @@ class TCSFetcher:
         logger.info(f'Downloading instruments for {method=}')
         async with AsyncRetryingClient(self._token, self._settings) as client:
             response = await getattr(client.instruments, method)()
-        logger.info(f')
+        logger.info('Instrument download complete')
         return response.instruments
 
     def _clean_and_transform_data(self, instruments: list[TCSInstrument]) -> list[Instrument]:

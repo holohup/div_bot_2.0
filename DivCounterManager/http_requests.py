@@ -7,7 +7,7 @@ logger = logging.getLogger(__name__)
 
 async def http_get(url: str):
     logger.info(f'Fetching data from {url}')
-    async with httpx.AsyncClient() as client:
+    async with httpx.AsyncClient(timeout=10.0) as client:
         result = await client.get(url)
     logger.info(f'Got data, status = {result.status_code}, data = {result.text}')
     return result.text
