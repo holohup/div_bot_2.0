@@ -28,7 +28,7 @@ async def get_instruments_by_ticker(ticker, channel, config):
     ticker_response = await ticker_stub.TickerRequest(
         GetTickerData(message=ticker)
     )
-    logger.info(f'Received data from TickerService')
+    logger.info('Received data from TickerService')
     current_time = Timestamp()
     current_time.FromDatetime(datetime.now())
     if (
