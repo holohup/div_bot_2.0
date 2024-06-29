@@ -18,25 +18,44 @@ dp = Dispatcher()
 client = httpx.AsyncClient()
 
 
+@dp.message(Command(commands='start'))
+async def welcome_new_user(message: Message):
+    logger.info(f'New user {message.from_user.id} did a /start')
+    await message.answer(
+        'Welcome to the Zion-net homework bot! '
+        'Send me a ticker or a /list command for a list of tickers'
+    )
+
+
 @dp.message(Command(commands="list"))
 async def list_tickers(message: Message):
+    logger.info(f'User {message.from_user.id} did a /list')
+    print(config.service.list)
     response = await client.get(config.service.list)
     msg = "List of available tickers with at least 1 future:\n" + response.text
     await message.answer(msg)
+    logger.info('/list command processed')
+
 
 
 @dp.message()
 async def dividend_info(message: Message):
+    logger.info(
+        f'User {message.from_user.id} requested info on ticker {message.text}'
+    )
     ticker = message.text.upper()
     response = await client.get(config.service.ticker(ticker))
+    logger.info(f'Received response for ticker {ticker}')
     result = json.loads(response.text)
     if (
         "result" in result.keys()
         and "Instrument with futures not found" in result["result"]
     ):
         await message.reply(result["result"])
+        logger.info('But no data was found')
     else:
         await message.reply(format_message(ticker, result))
+        logger.info('Sucessfully sent data to user')
 
 
 def format_message(ticker, result) -> str:
