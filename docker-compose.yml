@@ -15,7 +15,7 @@ services:
   
   tcs_api_accessor:
     env_file:
-      - TCSApiAccessor/.env.example
+      - TCSApiAccessor/.env
     build:
       context: TCSApiAccessor
       # uncomment the next line to run on a Raspberry Pi

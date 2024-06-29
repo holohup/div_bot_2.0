@@ -33,7 +33,7 @@ def load_config() -> Config:
     return Config(
         tcs=ServiceConfig(
             address='http://localhost:8000' if DEBUG
-            else 'http://tcs_api_accessor:8005'
+            else 'http://tcs_api_accessor:8000'
         ),
         redis=ServiceConfig(
             address='localhost:50051' if DEBUG else 'redis_accessor:50051'

@@ -35,9 +35,13 @@ async def get_instruments_by_ticker(ticker, channel, config):
         dt_from_ts(current_time) - dt_from_ts(ticker_response.timestamp)
         > config.db_update.pause_between_updates
     ):
-        logger.info('Updating tickers db')
+        logger.info(
+            f'Updating tickers db from {config.tcs.address + "/get_instruments"}'
+        )
         instruments = await http_get(config.tcs.address + '/get_instruments')
+        logger.info(f'Received instruments: {instruments}')
         result = await update_instruments(instruments, channel)
+        logger.info(f'Updated instruments, {result=}')
         if result != 'ok':
             logger.error('Error updating instruments')
         else:
