@@ -30,12 +30,10 @@ async def welcome_new_user(message: Message):
 @dp.message(Command(commands="list"))
 async def list_tickers(message: Message):
     logger.info(f'User {message.from_user.id} did a /list')
-    print(config.service.list)
     response = await client.get(config.service.list)
     msg = "List of available tickers with at least 1 future:\n" + response.text
     await message.answer(msg)
     logger.info('/list command processed')
-
 
 
 @dp.message()
@@ -48,41 +46,32 @@ async def dividend_info(message: Message):
     logger.info(f'Received response for ticker {ticker}')
     result = json.loads(response.text)
     if (
-        "result" in result.keys()
-        and "Instrument with futures not found" in result["result"]
+        'result' in result.keys()
+        and 'Instrument with futures not found' in result['result']
     ):
-        await message.reply(result["result"])
+        await message.reply(result['result'])
         logger.info('But no data was found')
     else:
-        await message.reply(format_message(ticker, result))
+        await message.reply(format_message(ticker, result), parse_mode='MarkdownV2')
         logger.info('Sucessfully sent data to user')
 
 
 def format_message(ticker, result) -> str:
-    result = result["dividends"]
+    result = result['dividends']
     table_data = [
         [
-            f["ticker"],
-            datetime.fromisoformat(f["expires"]).strftime("%d-%m-%y"),
-            f["dividend"],
+            f['ticker'],
+            datetime.fromisoformat(f['expires']).strftime('%d-%m-%y'),
+            f['dividend'],
         ]
         for f in result
     ]
-    headers = ["Ticker", "Expires", "Dividend"]
-    table = tabulate(table_data, headers=headers, tablefmt="plain")
-
+    headers = ['Ticker', 'Expires', 'Dividend']
+    table = tabulate(table_data, headers=headers, tablefmt='grid')
     lines = table.split("\n")
-    words = [line.split() for line in lines]
-    max_lengths = [max(len(word) for word in column) for column in zip(*words)]
+    table = ['`' + line + '`' for line in lines]
 
-    padded_lines = []
-    for line in words:
-        padded_line = " | ".join(
-            word.ljust(max_lengths[i]) for i, word in enumerate(line)
-        )
-        padded_lines.append(padded_line)
-
-    result = f"{ticker}\n```\n" + "\n".join(padded_lines) + "\n```"
+    result = f'{ticker}\n' + '\n'.join(table)
     return result
 
 
