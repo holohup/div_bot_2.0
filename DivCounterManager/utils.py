@@ -24,9 +24,11 @@ def dt_from_ts(ts: Timestamp) -> datetime:
 
 async def get_instruments_by_ticker(ticker, channel, config):
     ticker_stub = TickerServiceStub(channel)
+    logger.info(f'Getting ticker {ticker} from TickerService')
     ticker_response = await ticker_stub.TickerRequest(
         GetTickerData(message=ticker)
     )
+    logger.info(f'Received data from TickerService')
     current_time = Timestamp()
     current_time.FromDatetime(datetime.now())
     if (
