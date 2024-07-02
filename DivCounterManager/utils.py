@@ -7,7 +7,7 @@ from proto.api_pb2 import (
     MessageRequest, GetTickerData, InstrumentsMessage, Empty
 )
 from datetime import datetime
-from http_requests import http_get, http_post
+from http_requests import get_all_instruments, request_prices
 import logging
 
 logger = logging.getLogger(__name__)
@@ -35,12 +35,10 @@ async def get_instruments_by_ticker(ticker, channel, config):
         dt_from_ts(current_time) - dt_from_ts(ticker_response.timestamp)
         > config.db_update.pause_between_updates
     ):
-        logger.info(
-            f'Updating tickers db from {config.tcs.address + "/get_instruments"}'
-        )
-        instruments = await http_get(config.tcs.address + '/get_instruments')
-        logger.info(f'Received instruments: {instruments}')
-        result = await update_instruments(instruments, channel)
+        logger.info('Updating tickers db from dapr')
+        instruments = await get_all_instruments()
+        logger.debug(f'Received instruments: {instruments}')
+        result = await update_instruments(json.dumps(instruments), channel)
         logger.info(f'Updated instruments, {result=}')
         if result != 'ok':
             logger.error('Error updating instruments')
@@ -80,12 +78,8 @@ def fill_instruments_with_prices(instruments, p_json):
         instruments[i]['price'] = p_json[i]['price']
 
 
-async def prepare_prices(instruments, config):
-    prices = await http_post(
-        config.tcs.address + '/get_prices',
-        [instrument['uid'] for instrument in instruments]
-    )
-    return json.loads(prices)
+async def prepare_prices(instruments):
+    return await request_prices([i['uid'] for i in instruments])
 
 
 async def fetch_tickers_from_db(channel):

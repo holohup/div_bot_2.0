@@ -22,7 +22,10 @@ class TCSFetcher:
     def __init__(self, config):
         self._token = config.token
         self._settings = config.settings
-        logger.info(f'Init complete, {self._token=}, {self._settings=}')
+        logger.info(
+            f'Init complete, token={self._obfuscate_token(self._token)}'
+            f', {self._settings=}'
+        )
 
     async def download_instruments(self) -> Instruments:
         futures_response: list[TFuture] = await self._fetch_data('futures')
@@ -64,6 +67,12 @@ class TCSFetcher:
             result.append(Future(**params))
         logger.info('Instrument data preparation complete')
         return result
+
+    @staticmethod
+    def _obfuscate_token(token):
+        if not token:
+            return 'None'
+        return ''.join(["*" if c != "." and c != "-" else c for c in token])
 
 
 async def get_last_prices(uids: list[str], config) -> list[Price]:

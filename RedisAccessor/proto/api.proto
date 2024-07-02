@@ -63,3 +63,9 @@ message MessageRequest {
 message MessageResponse {
     string message = 1;
 }
+
+// Store log
+service RedisQueue {
+    rpc PutMessage (MessageRequest) returns (MessageResponse);
+    rpc GetMessage (Empty) returns (MessageResponse);
+}

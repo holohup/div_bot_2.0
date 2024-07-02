@@ -1,8 +1,9 @@
-import asyncio
 import grpc
 from fastapi import FastAPI
+import uvicorn
 from config import load_config
 import json
+from contextlib import asynccontextmanager
 import logging
 from financial_calculator import FinancialCalculator
 from utils import (
@@ -11,22 +12,30 @@ from utils import (
     send_message_to_log_calculation
 )
 
-
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-app = FastAPI()
+
 config = load_config()
-channel = grpc.aio.insecure_channel(config.redis.address)
 fin_calc = FinancialCalculator(
     config.finance.discount_rate, config.finance.tax
 )
 
 
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    channel = grpc.aio.insecure_channel(config.redis.address)
+    await get_instruments_by_ticker('', channel, config)
+    app.state.channel = channel
+    yield
+
+app = FastAPI(lifespan=lifespan)
+
+
 @app.get('/ticker')
 async def count_dividends(ticker: str):
     matching_instruments = await get_instruments_by_ticker(
-        ticker, channel, config
+        ticker, app.state.channel, config
     )
     if not matching_instruments:
         return {
@@ -34,10 +43,10 @@ async def count_dividends(ticker: str):
             f'Instrument with futures not found for ticker {ticker.upper()}'
         }
     instruments = prepare_instruments(json.loads(matching_instruments))
-    prices_json = await prepare_prices(instruments, config)
+    prices_json = await prepare_prices(instruments)
     fill_instruments_with_prices(instruments, prices_json)
     result = fin_calc.calculate(instruments)
-    await send_message_to_log_calculation(channel, ticker, result)
+    await send_message_to_log_calculation(app.state.channel, ticker, result)
     return {
         'ticker': ticker.upper(), 'dividends': result
     }
@@ -45,10 +54,9 @@ async def count_dividends(ticker: str):
 
 @app.get('/list')
 async def get_tickers_list():
-    list_response = await fetch_tickers_from_db(channel)
+    list_response = await fetch_tickers_from_db(app.state.channel)
     return list_response
 
 
-@app.on_event('startup')
-async def startup():
-    asyncio.create_task(get_instruments_by_ticker('', channel, config))
+if __name__ == '__main__':
+    uvicorn.run('main:app', host='0.0.0.0', port=8005, reload=True)

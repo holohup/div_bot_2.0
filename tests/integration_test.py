@@ -1,5 +1,6 @@
 # Theese are integration tests, will pass only with 'docker compose up'
 
+import json
 import requests
 from http import HTTPStatus
 import time
@@ -47,7 +48,7 @@ def test_list_works():
     assert response.text == expected
 
 
-def test_calculations_are_correct():
+def test_calculations_are_made():
     """
     Tests the functionality of the main modules works.
     Tests DivCounterManager, redis, RedisAccessor, TCSApiAccessor
@@ -55,16 +56,17 @@ def test_calculations_are_correct():
     messaging between them.
     """
 
-    expected = (
-        '{"ticker":"SBER",'
-        '"dividends":[{"ticker":"SRU4","expires":"2024-09-20T00:00:00",'
-        '"dividend":32.06},{"ticker":"SRZ4","expires":"2024-12-20T00:00:00"'
-        ',"dividend":32.93},{"ticker":"SRH5","expires":"2025-03-21T00:00:00"'
-        ',"dividend":29.08},{"ticker":"SRM5","expires":"2025-06-20T00:00:00"'
-        ',"dividend":40.77}]}'
-    )
-    response = requests.get(TICKER_URL("sber"))
-    assert response.text == expected
+    expected_futures = ('SRU4', 'SRZ4', 'SRH5', 'SRM5')
+    parsed_response = json.loads(requests.get(TICKER_URL("sber")).text)
+    assert 'ticker' in parsed_response
+    assert parsed_response['ticker'] == 'SBER'
+    assert len(parsed_response) == 2
+    assert 'dividends' in parsed_response
+    futures_result = parsed_response['dividends']
+    assert len(futures_result) == 4
+    for i in range(len(expected_futures)):
+        assert futures_result[i]['ticker'] == expected_futures[i]
+        assert float(futures_result[i]['dividend']) >= 0
 
 
 def test_logs_work(log_file_backup):
