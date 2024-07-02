@@ -22,22 +22,25 @@ class FinancialConfig:
 
 
 @dataclass
+class PubSubConfig:
+    channel_name: str
+    pubsub_name: str
+
+
+@dataclass
 class Config:
-    tcs: ServiceConfig
     redis: ServiceConfig
     db_update: DBUpdateConfig
     finance: FinancialConfig
+    pubsub: PubSubConfig
 
 
 def load_config() -> Config:
     return Config(
-        tcs=ServiceConfig(
-            address='http://localhost:8000' if DEBUG
-            else 'http://tcs_api_accessor:8000'
-        ),
         redis=ServiceConfig(
             address='localhost:50051' if DEBUG else 'redis_accessor:50051'
         ),
         db_update=DBUpdateConfig(timedelta(days=1)),
-        finance=FinancialConfig(discount_rate=16.0, tax=13.0)
+        finance=FinancialConfig(discount_rate=16.0, tax=13.0),
+        pubsub=PubSubConfig(channel_name='queries', pubsub_name='logpubsub')
     )

@@ -83,13 +83,16 @@ def test_logs_work(log_file_backup):
     with open(log_file, 'r') as f:
         before_operations = f.read()
     requests.get(TICKER_URL("afks"))
-    both_string_found = False
+    both_strings_found = False
     for pause in range(LOG_CHECK_TIMEOUT_SECONDS):
         with open(log_file, 'r') as f:
             after_operations = f.read()
-        if expected_entry_1 not in after_operations or expected_entry_2 not in after_operations:
+        if (
+            expected_entry_1 not in after_operations
+            or expected_entry_2 not in after_operations
+        ):
             time.sleep(1)
             continue
-        both_string_found = True
+        both_strings_found = True
     assert before_operations != after_operations
-    assert both_string_found
+    assert both_strings_found

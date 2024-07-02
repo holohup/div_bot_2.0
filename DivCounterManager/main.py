@@ -11,6 +11,7 @@ from utils import (
     prepare_instruments, prepare_prices, fetch_tickers_from_db,
     send_message_to_log_calculation
 )
+from publisher import publish_log_message
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -46,7 +47,11 @@ async def count_dividends(ticker: str):
     prices_json = await prepare_prices(instruments)
     fill_instruments_with_prices(instruments, prices_json)
     result = fin_calc.calculate(instruments)
-    await send_message_to_log_calculation(app.state.channel, ticker, result)
+    log_result = {
+        'ticker': ticker.upper(),
+        'dividends': [str(r.json()) for r in result]
+    }
+    await publish_log_message(json.dumps(log_result), config.pubsub)
     return {
         'ticker': ticker.upper(), 'dividends': result
     }
