@@ -34,11 +34,10 @@ services:
       "./daprd",
       "--app-id", "tcs_api_accessor",
       "--app-port", "8000",
-      # "--placement-host-address", "placement:50006",
       "--resources-path", "./components"
     ]
     volumes:
-        - "./components/:/components"
+      - "./components/:/components"
     depends_on:
       - tcs_api_accessor
     network_mode: "service:tcs_api_accessor"
@@ -49,8 +48,6 @@ services:
     networks: 
       - div_counter_network
     depends_on:
-      # placement:
-      #   condition: service_started
       redis:
         condition: service_healthy
   redis_accessor-dapr:
@@ -65,11 +62,11 @@ services:
       "./daprd",
       "--app-id", "redis_accessor",
       "--app-port", "50051",
-      # "--placement-host-address", "placement:50006",
+      "--app-protocol", "grpc",
       "--resources-path", "./components"
     ]
     volumes:
-        - "./components/:/components"
+      - "./components/:/components"
     depends_on:
       - redis_accessor
     network_mode: "service:redis_accessor"
@@ -95,11 +92,10 @@ services:
       "./daprd",
       "--app-id", "log_accessor",
       "--app-port", "8001",
-      # "--placement-host-address", "placement:50006",
       "--resources-path", "./components"
     ]
     volumes:
-        - "./components/:/components"
+      - "./components/:/components"
     depends_on:
       - log_accessor
     network_mode: "service:log_accessor"
@@ -114,6 +110,7 @@ services:
     depends_on:
       - redis_accessor
       - tcs_api_accessor
+    restart: always
   div_counter_manager-dapr:
     image: "daprio/daprd:edge"
     deploy:
@@ -126,22 +123,13 @@ services:
       "./daprd",
       "--app-id", "div_counter_manager",
       "--app-port", "8005",
-      # "--placement-host-address", "placement:50006",
       "--resources-path", "./components"
     ]
     volumes:
-        - "./components/:/components"
+      - "./components/:/components"
     depends_on:
       - div_counter_manager
     network_mode: "service:div_counter_manager"
-
-  # placement:
-  #   image: "daprio/dapr"
-  #   command: ["./placement", "-port", "50006"]
-  #   ports:
-  #     - "50006:50006"
-  #   networks:
-  #     - div_counter_network
 
 networks:
   div_counter_network:

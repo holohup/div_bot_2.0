@@ -4,6 +4,7 @@ from schema import Instruments, Price
 from tcs_api import TCSFetcher, get_last_prices
 import logging
 
+
 config = load_config()
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)

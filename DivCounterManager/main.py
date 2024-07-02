@@ -1,4 +1,4 @@
-import grpc
+import asyncio
 from fastapi import FastAPI
 import uvicorn
 from config import load_config
@@ -8,10 +8,10 @@ import logging
 from financial_calculator import FinancialCalculator
 from utils import (
     get_instruments_by_ticker, fill_instruments_with_prices,
-    prepare_instruments, prepare_prices, fetch_tickers_from_db,
-    send_message_to_log_calculation
+    prepare_instruments, prepare_prices, fetch_tickers_from_db
 )
 from publisher import publish_log_message
+
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -25,9 +25,15 @@ fin_calc = FinancialCalculator(
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    channel = grpc.aio.insecure_channel(config.redis.address)
-    await get_instruments_by_ticker('', channel, config)
-    app.state.channel = channel
+    grpc_ready = False
+    while not grpc_ready:
+        try:
+            await get_instruments_by_ticker('', config.db_update.pause_between_updates)
+        except Exception as e:
+            logger.warning(str(e))
+            await asyncio.sleep(1)
+        else:
+            grpc_ready = True
     yield
 
 app = FastAPI(lifespan=lifespan)
@@ -36,7 +42,7 @@ app = FastAPI(lifespan=lifespan)
 @app.get('/ticker')
 async def count_dividends(ticker: str):
     matching_instruments = await get_instruments_by_ticker(
-        ticker, app.state.channel, config
+        ticker, config.db_update.pause_between_updates
     )
     if not matching_instruments:
         return {
@@ -59,9 +65,9 @@ async def count_dividends(ticker: str):
 
 @app.get('/list')
 async def get_tickers_list():
-    list_response = await fetch_tickers_from_db(app.state.channel)
+    list_response = await fetch_tickers_from_db()
     return list_response
 
 
 if __name__ == '__main__':
-    uvicorn.run('main:app', host='0.0.0.0', port=8005, reload=True)
+    uvicorn.run('main:app', host='0.0.0.0', port=8005)

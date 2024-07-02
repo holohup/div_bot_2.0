@@ -11,7 +11,7 @@ logger = logging.getLogger(__name__)
 
 async def get_all_instruments():
     async with DaprClient() as client:
-        instruments: InvokeMethodResponse = await client.invoke_method(
+        instruments = await client.invoke_method(
             'tcs_api_accessor', 'get_instruments', ''
         )
     logger.debug(f"Got data: {instruments.json()}")
