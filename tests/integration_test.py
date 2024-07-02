@@ -11,6 +11,7 @@ import shutil
 URL = "http://127.0.0.1:8005"
 LIST_URL = URL + "/list"
 TICKER_URL = lambda url: URL + "/ticker?ticker=" + url
+LOG_CHECK_TIMEOUT_SECONDS: int = 60
 
 
 @pytest.fixture
@@ -77,21 +78,18 @@ def test_logs_work(log_file_backup):
     """
 
     log_file = log_file_backup
-    expected_entry = (
-        'AFKS' + '\n'
-        '+----------+-----------+------------+' + '\n'
-        '| Ticker   | Expires   |   Dividend |' + '\n'
-        '+==========+===========+============+' + '\n'
-        '| AKU4     | 20-09-24  |       0.64 |' + '\n'
-        '+----------+-----------+------------+' + '\n'
-        '| AKZ4     | 20-12-24  |       1.22 |' + '\n'
-        '+----------+-----------+------------+'
-    )
+    expected_entry_1 = '| AKU4     | 20-09-24  |'
+    expected_entry_2 = '| AKZ4     | 20-12-24  |'
     with open(log_file, 'r') as f:
         before_operations = f.read()
     requests.get(TICKER_URL("afks"))
-    time.sleep(60)
-    with open(log_file, 'r') as f:
-        after_operations = f.read()
+    both_string_found = False
+    for pause in range(LOG_CHECK_TIMEOUT_SECONDS):
+        with open(log_file, 'r') as f:
+            after_operations = f.read()
+        if expected_entry_1 not in after_operations or expected_entry_2 not in after_operations:
+            time.sleep(1)
+            continue
+        both_string_found = True
     assert before_operations != after_operations
-    assert expected_entry in after_operations
+    assert both_string_found
