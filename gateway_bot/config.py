@@ -1,4 +1,5 @@
 from dataclasses import dataclass
+
 from environs import Env
 
 
@@ -28,12 +29,10 @@ class Config:
 def load_config():
     env = Env()
     env.read_env()
-    DEBUG = str(
-        env('DEBUG', False)
-    ).lower() in ('yes', 'true', '1', 'ok', 'debug')
+    DEBUG = str(env('DEBUG', False)).lower() in ('yes', 'true', '1', 'ok', 'debug')
     return Config(
         bot=BotConfig(token=env('TG_BOT_TOKEN')),
         service=ServiceConfig(
             url='http://localhost:8005' if DEBUG else 'http://prod:8005'
-        )
+        ),
     )

@@ -1,10 +1,15 @@
 import json
-from dapr.ext.grpc import App, InvokeMethodRequest, InvokeMethodResponse
-from config import Config, load_config
-import redis
-from storage import RedisStorage, Storage
-from instrument_scribe import InstrumentScribe
 import logging
+
+
+from dapr.ext.grpc import App, InvokeMethodRequest, InvokeMethodResponse
+import redis
+
+
+from config import Config, load_config
+from instrument_scribe import InstrumentScribe
+from storage import RedisStorage, Storage
+
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -26,8 +31,7 @@ def store_instruments(request: InvokeMethodRequest) -> InvokeMethodResponse:
         instruments = request['instruments']
         timestamp = request['timestamp']
         logger.info(
-            'Trying to save instruments,'
-            f' timestamp = {request["timestamp"]}'
+            'Trying to save instruments,' f' timestamp = {request["timestamp"]}'
         )
         scribe = InstrumentScribe(storage, config)
         scribe.save_instruments(json.loads(instruments), timestamp)
@@ -41,16 +45,12 @@ def store_instruments(request: InvokeMethodRequest) -> InvokeMethodResponse:
 def list_available_tickers(request) -> InvokeMethodResponse:
     tickers_with_prefix = storage.list_all_available_keys()
     prefix = config.storage.prefix
-    result = [
-        t.partition(prefix)[-1] for t in tickers_with_prefix if prefix in t
-    ]
+    result = [t.partition(prefix)[-1] for t in tickers_with_prefix if prefix in t]
     return InvokeMethodResponse(', '.join(sorted(result)), status_code=200)
 
 
 @app.method(name='get_instruments_by_ticker')
-def get_instruments_by_ticker(
-    request: InvokeMethodRequest
-) -> InvokeMethodResponse:
+def get_instruments_by_ticker(request: InvokeMethodRequest) -> InvokeMethodResponse:
     ts = (
         storage.fetch_single_value(config.storage.timestamp_key)
         if storage.key_exists(config.storage.timestamp_key)
@@ -60,7 +60,7 @@ def get_instruments_by_ticker(
         'timestamp': ts,
         'data': storage.fetch_single_value(
             config.storage.prefix + request.text().upper()
-        )
+        ),
     }
 
     logger.info(f'Returning ticker info and timestamp: {response}')

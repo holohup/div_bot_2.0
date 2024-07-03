@@ -163,3 +163,4 @@ cython_debug/
 
 redis/*
 .dapr
+dev_components/

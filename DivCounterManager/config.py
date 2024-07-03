@@ -1,5 +1,5 @@
-from dataclasses import dataclass
 import os
+from dataclasses import dataclass
 from datetime import timedelta
 
 DEBUG = str(os.getenv('DEBUG', False)).lower() in ('true', '1', 'yes', 'on')
@@ -42,5 +42,5 @@ def load_config() -> Config:
         ),
         db_update=DBUpdateConfig(timedelta(days=1)),
         finance=FinancialConfig(discount_rate=16.0, tax=13.0),
-        pubsub=PubSubConfig(channel_name='queries', pubsub_name='logpubsub')
+        pubsub=PubSubConfig(channel_name='queries', pubsub_name='logpubsub'),
     )

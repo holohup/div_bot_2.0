@@ -1,6 +1,7 @@
 import json
 import logging
 from datetime import datetime
+
 from tabulate import tabulate
 
 logger = logging.getLogger(__name__)

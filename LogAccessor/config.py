@@ -13,6 +13,4 @@ class Config:
 
 
 def load_config() -> Config:
-    return Config(
-        pubsub=PubSubConfig(channel_name='queries', pubsub_name='logpubsub')
-    )
+    return Config(pubsub=PubSubConfig(channel_name='queries', pubsub_name='logpubsub'))
