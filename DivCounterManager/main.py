@@ -28,7 +28,9 @@ async def lifespan(app: FastAPI):
     grpc_ready = False
     while not grpc_ready:
         try:
-            await get_instruments_by_ticker('', config.db_update.pause_between_updates)
+            await get_instruments_by_ticker(
+                '', config.db_update.pause_between_updates
+            )
         except Exception as e:
             logger.warning(str(e))
             await asyncio.sleep(1)
