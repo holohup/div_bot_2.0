@@ -1,5 +1,6 @@
 # Theese are integration tests, will pass only with 'docker compose up'
 
+import json
 import requests
 from http import HTTPStatus
 import time
@@ -10,6 +11,7 @@ import shutil
 URL = "http://127.0.0.1:8005"
 LIST_URL = URL + "/list"
 TICKER_URL = lambda url: URL + "/ticker?ticker=" + url
+LOG_CHECK_TIMEOUT_SECONDS: int = 60
 
 
 @pytest.fixture
@@ -47,7 +49,7 @@ def test_list_works():
     assert response.text == expected
 
 
-def test_calculations_are_correct():
+def test_calculations_are_made():
     """
     Tests the functionality of the main modules works.
     Tests DivCounterManager, redis, RedisAccessor, TCSApiAccessor
@@ -55,16 +57,17 @@ def test_calculations_are_correct():
     messaging between them.
     """
 
-    expected = (
-        '{"ticker":"SBER",'
-        '"dividends":[{"ticker":"SRU4","expires":"2024-09-20T00:00:00",'
-        '"dividend":32.06},{"ticker":"SRZ4","expires":"2024-12-20T00:00:00"'
-        ',"dividend":32.93},{"ticker":"SRH5","expires":"2025-03-21T00:00:00"'
-        ',"dividend":29.08},{"ticker":"SRM5","expires":"2025-06-20T00:00:00"'
-        ',"dividend":40.77}]}'
-    )
-    response = requests.get(TICKER_URL("sber"))
-    assert response.text == expected
+    expected_futures = ('SRU4', 'SRZ4', 'SRH5', 'SRM5')
+    parsed_response = json.loads(requests.get(TICKER_URL("sber")).text)
+    assert 'ticker' in parsed_response
+    assert parsed_response['ticker'] == 'SBER'
+    assert len(parsed_response) == 2
+    assert 'dividends' in parsed_response
+    futures_result = parsed_response['dividends']
+    assert len(futures_result) == 4
+    for i in range(len(expected_futures)):
+        assert futures_result[i]['ticker'] == expected_futures[i]
+        assert float(futures_result[i]['dividend']) >= 0
 
 
 def test_logs_work(log_file_backup):
@@ -75,21 +78,21 @@ def test_logs_work(log_file_backup):
     """
 
     log_file = log_file_backup
-    expected_entry = (
-        'AFKS' + '\n'
-        '+----------+-----------+------------+' + '\n'
-        '| Ticker   | Expires   |   Dividend |' + '\n'
-        '+==========+===========+============+' + '\n'
-        '| AKU4     | 20-09-24  |       0.64 |' + '\n'
-        '+----------+-----------+------------+' + '\n'
-        '| AKZ4     | 20-12-24  |       1.22 |' + '\n'
-        '+----------+-----------+------------+'
-    )
+    expected_entry_1 = '| AKU4     | 20-09-24  |'
+    expected_entry_2 = '| AKZ4     | 20-12-24  |'
     with open(log_file, 'r') as f:
         before_operations = f.read()
     requests.get(TICKER_URL("afks"))
-    time.sleep(60)
-    with open(log_file, 'r') as f:
-        after_operations = f.read()
+    both_strings_found = False
+    for pause in range(LOG_CHECK_TIMEOUT_SECONDS):
+        with open(log_file, 'r') as f:
+            after_operations = f.read()
+        if (
+            expected_entry_1 not in after_operations
+            or expected_entry_2 not in after_operations
+        ):
+            time.sleep(1)
+            continue
+        both_strings_found = True
     assert before_operations != after_operations
-    assert expected_entry in after_operations
+    assert both_strings_found

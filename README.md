@@ -29,15 +29,9 @@ docker compose up [-d]
 
 After some *rustling*, the app with all its microservices should be running.
 
-##### Fair Word of Warning
-
-I've tested it only on two devices so far. Sometimes it doesn't run on the first try on a Raspberry Pi because the containers launch slowly, and by the time the needed container is ready, the container that needs it has already exited (1). This problem is solved by relaunching since, for some reason, when it is not building the images, the Python containers start faster.
-
-I am considering adding health check endpoints to each container so Docker knows the right time to launch. On a PC, the process works flawlessly.
-
 #### Another External API
 
-The application uses an external API - Tinkoff Broker. If you happen to have its API key, you can add it to the `TCSApiAccessor/.env.example`, and the application will work correctly. Without it, it provides data from fixtures - everything, including tests, runs, but you cannot trust the data it provides. The Telegram bot is connected to a backend that uses the real key, so the bot responses are legitimate.
+The application uses an external API - Tinkoff Broker. If you happen to have its API key, you can add it to the `TCSApiAccessor/.env.example`, and the application will work correctly. Without it, it provides data from fixtures - everything, including tests, runs smoothly, but you cannot trust the data it provides. The Telegram bot is connected to a backend that uses the real key, so the bot responses are legitimate.
 
 ### How to Test
 
@@ -63,7 +57,7 @@ The structure above is self-explanatory. I'll write more details after I get som
 
 ##### log.txt
 
-Since the logging server relies on Queue, it works asynchronously and adds the results of dividend estimation to the `log.txt` file in the root folder of the project. It's mapped from the LogAccessor, so you should see the changes in the log. It checks for new messages periodically, every minute by default, so the test waits for 1 minute before checking the log service is working, and so should you - the changes are not immediate.
+Since the logging server relies on Queue, it works asynchronously and adds the results of dividend estimation to the `log.txt` file in the root folder of the project. It's mapped from the LogAccessor, so you should see the changes in the log. 
 
 ### To-Do
 - Decouple business logic from management - create a financial engine underneath the manager
@@ -72,3 +66,4 @@ Since the logging server relies on Queue, it works asynchronously and adds the r
 - Add health check endpoints for Docker Compose
 - ~Try to use MarkdownV2 and with mono-width font in a telegram bot for a neater table~
 - Implement CI/CD using Github Actions: flake8, isort, unit and integration tests, images creation and push to Dockerhub, optionally SSH for deployment.
+- ~DAPRize it.~

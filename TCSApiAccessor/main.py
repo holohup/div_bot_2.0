@@ -4,6 +4,7 @@ from schema import Instruments, Price
 from tcs_api import TCSFetcher, get_last_prices
 import logging
 
+
 config = load_config()
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -45,3 +46,8 @@ def provide_fixture(filename: str):
     with open(fixture_path, 'r') as file:
         json_data = json.load(file)
     return json_data
+
+
+if __name__ == '__main__':
+    import uvicorn
+    uvicorn.run(app)

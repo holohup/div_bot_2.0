@@ -1,21 +1,31 @@
-import httpx
+import json
 import logging
+
+from dapr.aio.clients import DaprClient
+from dapr.clients.grpc._response import InvokeMethodResponse
+
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 
-async def http_get(url: str):
-    logger.info(f'Fetching data from {url}')
-    async with httpx.AsyncClient(timeout=10.0) as client:
-        result = await client.get(url)
-    logger.info(f'Got data, status = {result.status_code}, data = {result.text}')
-    return result.text
+async def get_all_instruments():
+    async with DaprClient() as client:
+        instruments = await client.invoke_method(
+            'tcs_api_accessor', 'get_instruments', ''
+        )
+    logger.debug(f"Got data: {instruments.json()}")
+    return instruments.json()
 
 
-async def http_post(url: str, uids: list[str]):
-    logger.info(f'Posting {uids} to {url}')
-    async with httpx.AsyncClient() as client:
-        response = await client.post(url, json=uids)
-    logger.info(f'Posted. {response.status_code=}, {response.text=}')
-    return response.text
+async def request_prices(uids: list[str]):
+    logger.info(f'Getting prices for {uids}')
+    async with DaprClient() as client:
+        prices: InvokeMethodResponse = await client.invoke_method(
+            'tcs_api_accessor',
+            'get_prices',
+            data=json.dumps(uids),
+            http_verb='POST'
+        )
+    logger.info(f'Got prices: {prices.json()}')
+    return prices.json()
