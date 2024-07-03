@@ -13,7 +13,7 @@ async def get_all_instruments():
         instruments = await client.invoke_method(
             'tcs_api_accessor', 'get_instruments', ''
         )
-    logger.debug(f"Got data: {instruments.json()}")
+    logger.debug(f'Got data: {instruments.json()}')
     return instruments.json()
 
 

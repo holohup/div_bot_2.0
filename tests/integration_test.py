@@ -83,7 +83,7 @@ def test_logs_work(log_file_backup):
     expected_entry_2 = '| AKZ4     | 20-12-24  |'
     with open(log_file, 'r') as f:
         before_operations = f.read()
-    requests.get(TICKER_URL("afks"))
+    requests.get(TICKER_URL('afks'))
     both_strings_found = False
     for pause in range(LOG_CHECK_TIMEOUT_SECONDS):
         with open(log_file, 'r') as f:

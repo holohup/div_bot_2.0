@@ -77,7 +77,7 @@ class TCSFetcher:
     def _obfuscate_token(token):
         if not token:
             return 'None'
-        return ''.join(["*" if c != "." and c != "-" else c for c in token])
+        return ''.join(['*' if c != '.' and c != '-' else c for c in token])
 
 
 async def get_last_prices(uids: list[str], config) -> list[Price]:
