@@ -1,5 +1,6 @@
 import json
 import logging
+
 from pydantic.json import pydantic_encoder
 from schema import Future, Stock
 
@@ -29,9 +30,7 @@ class InstrumentScribe:
             self._storage.store(
                 ticker, json.dumps(instruments, default=pydantic_encoder)
             )
-        logger.info(
-            f'{len(organized_by_ticker.items())} tickers saved.'
-        )
+        logger.info(f'{len(organized_by_ticker.items())} tickers saved.')
         self._storage.store(self._config.storage.timestamp_key, timestamp)
         logger.info(f'Timestamp updated: {timestamp}')
 
@@ -48,9 +47,7 @@ class InstrumentScribe:
         return self._keep_only_tickers_with_pairs(result)
 
     def _keep_only_tickers_with_pairs(self, result):
-        return {
-            k: v for k, v in result.items() if (v['futures'] and v['stock'])
-        }
+        return {k: v for k, v in result.items() if (v['futures'] and v['stock'])}
 
     def _set_up_new_ticker(self, result, ticker):
         if ticker not in result.keys():

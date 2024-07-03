@@ -1,11 +1,12 @@
-from datetime import datetime
 import json
+import logging
+from datetime import datetime
+
+import httpx
 from aiogram import Bot, Dispatcher
 from aiogram.filters import Command
 from aiogram.types import Message
-import httpx
 from config import load_config
-import logging
 from tabulate import tabulate
 
 logging.basicConfig(level=logging.INFO)
@@ -27,20 +28,18 @@ async def welcome_new_user(message: Message):
     )
 
 
-@dp.message(Command(commands="list"))
+@dp.message(Command(commands='list'))
 async def list_tickers(message: Message):
     logger.info(f'User {message.from_user.id} did a /list')
     response = await client.get(config.service.list)
-    msg = "List of available tickers with at least 1 future:\n" + response.text
+    msg = 'List of available tickers with at least 1 future:\n' + response.text
     await message.answer(msg)
     logger.info('/list command processed')
 
 
 @dp.message()
 async def dividend_info(message: Message):
-    logger.info(
-        f'User {message.from_user.id} requested info on ticker {message.text}'
-    )
+    logger.info(f'User {message.from_user.id} requested info on ticker {message.text}')
     ticker = message.text.upper()
     response = await client.get(config.service.ticker(ticker))
     logger.info(f'Received response for ticker {ticker}')
@@ -68,12 +67,12 @@ def format_message(ticker, result) -> str:
     ]
     headers = ['Ticker', 'Expires', 'Dividend']
     table = tabulate(table_data, headers=headers, tablefmt='grid')
-    lines = table.split("\n")
+    lines = table.split('\n')
     table = ['`' + line + '`' for line in lines]
 
     result = f'{ticker}\n' + '\n'.join(table)
     return result
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     dp.run_polling(bot)

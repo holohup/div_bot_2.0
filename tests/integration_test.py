@@ -1,16 +1,17 @@
 # Theese are integration tests, will pass only with 'docker compose up'
 
 import json
-import requests
-from http import HTTPStatus
-import time
-import pytest
 import os
 import shutil
+import time
+from http import HTTPStatus
 
-URL = "http://127.0.0.1:8005"
-LIST_URL = URL + "/list"
-TICKER_URL = lambda url: URL + "/ticker?ticker=" + url
+import pytest
+import requests
+
+URL = 'http://127.0.0.1:8005'
+LIST_URL = URL + '/list'
+TICKER_URL = lambda url: URL + '/ticker?ticker=' + url
 LOG_CHECK_TIMEOUT_SECONDS: int = 60
 
 
@@ -82,7 +83,7 @@ def test_logs_work(log_file_backup):
     expected_entry_2 = '| AKZ4     | 20-12-24  |'
     with open(log_file, 'r') as f:
         before_operations = f.read()
-    requests.get(TICKER_URL("afks"))
+    requests.get(TICKER_URL('afks'))
     both_strings_found = False
     for pause in range(LOG_CHECK_TIMEOUT_SECONDS):
         with open(log_file, 'r') as f:

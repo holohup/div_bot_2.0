@@ -1,5 +1,6 @@
-from dapr.aio.clients import DaprClient
 import logging
+
+from dapr.aio.clients import DaprClient
 
 logger = logging.getLogger(__name__)
 

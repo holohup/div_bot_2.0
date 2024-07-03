@@ -1,5 +1,6 @@
 import json
 from abc import ABC, abstractmethod
+
 from redis import Redis
 
 
@@ -57,7 +58,7 @@ class RedisStorage(Storage):
         return self._r.exists(k)
 
     def drop_by_prefix(self, prefix: str):
-        for key in self._r.scan_iter(prefix+'*'):
+        for key in self._r.scan_iter(prefix + '*'):
             self._r.delete(key)
 
     def list_all_available_keys(self) -> list[str]:
